@@ -1,0 +1,26 @@
+[ 55 ]
+Prepare Data for Modeling
+All data is dirty, irrespective of what the source of the data might lead you to believe:
+it might be your colleague, a telemetry system that monitors your environment, a
+dataset you download from the web, or some other source. Until you have tested and
+proven to yourself that your data is in a clean state (we will get to what clean state
+means in a second), you should neither trust it nor use it for modeling.
+Your data can be stained with duplicates, missing observations and outliers, non-
+existent addresses, wrong phone numbers and area codes, inaccurate geographical
+coordinates, wrong dates, incorrect labels, mixtures of upper and lower cases,
+trailing spaces, and many other more subtle problems. It is your job to clean it,
+irrespective of whether you are a data scientist or data engineer, so you can build a
+statistical or machine learning model.
+Your dataset is considered technically clean if none of the aforementioned problems
+can be found. However, to clean the dataset for modeling purposes, you also need to
+check the distributions of your features and confirm they fit the predefined criteria.
+As a data scientist, you can expect to spend 80-90% of your time massaging your data
+and getting familiar with all the features. This chapter will guide you through that
+process, leveraging Spark capabilities.
+In this chapter, you will learn how to do the following:
+•
+Recognize and handle duplicates, missing observations, and outliers
+•
+Calculate descriptive statistics and correlations
+•
+Visualize your data with matplotlib and Bokeh

@@ -1,0 +1,22 @@
+Chapter 3
+[ 53 ]
+But, it would be cooler to view this data as a map; click on the bar chart icon at the
+bottom-left of the chart, and you can choose from many different native navigations,
+including a map:
+One of the key benefits of DataFrames is that the information is structured similar to
+a table. Therefore, whether you are using notebooks or your favorite BI tool, you will
+be able to quickly visualize your data.
+You can find the full list of pyspark.sql.DataFrame methods at
+http://bit.ly/2bkUGnT.
+You can find the full list of pyspark.sql.functions at http://bit.
+ly/2bTAzLT.
+Spark Dataset API
+After this discussion about Spark DataFrames, let's have a quick recap of the Spark
+Dataset API. Introduced in  Apache Spark 1.6, the goal of Spark Datasets was to
+provide an API that allows users to easily express transformations on domain
+objects, while also providing the performance and benefits of the robust Spark SQL
+execution engine. As part of the Spark 2.0 release (and as noted in the diagram
+below), the DataFrame APIs is merged into the Dataset API thus unifying data
+processing capabilities across all libraries. Because of this unification, developers
+now have fewer concepts to learn or remember, and work with a single high-level
+and type-safe API – called Dataset:

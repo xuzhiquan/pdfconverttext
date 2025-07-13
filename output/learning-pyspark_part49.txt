@@ -1,0 +1,27 @@
+Resilient Distributed Datasets
+[ 26 ]
+Note that the preceding command might take a while depending on how
+fast your computer is. For us, it took a little over two minutes to return a
+result.
+The .flatMap(...) transformation
+The .flatMap(...) method works similarly to .map(...), but it returns a flattened
+result instead of a list. If we execute the following code:
+data_2014_flat = data_from_file_conv.flatMap(lambda row: (row[16],
+int(row[16]) + 1))
+data_2014_flat.take(10)
+It will yield the following output:
+You can compare this result with the results of the command that generated
+data_2014_2 previously. Note, also, as mentioned earlier, that the .flatMap(...)
+method can be used to filter out some malformed records when you need to parse
+your input. Under the hood, the .flatMap(...) method treats each row as a list and
+then simply adds all the records together; by passing an empty list the malformed
+records is dropped.
+The .distinct(...) transformation
+This method returns a list of distinct values in a specified column. It is extremely
+useful if you want to get to know your dataset or validate it. Let's check if the gender
+column contains only males and females; that would verify that we parsed the
+dataset properly. Let's run the following code:
+distinct_gender = data_from_file_conv.map(
+lambda row: row[5]).distinct()
+distinct_gender.collect()
+This code will produce the following output:

@@ -1,0 +1,32 @@
+[ i ]
+Table of Contents
+Preface
+vii
+Chapter 1: Understanding Spark
+What is Apache Spark?
+Spark Jobs and APIs
+Execution process
+Resilient Distributed Dataset
+DataFrames
+Datasets
+Catalyst Optimizer
+Project Tungsten
+Spark 2.0 architecture
+Unifying Datasets and DataFrames
+Introducing SparkSession
+Tungsten phase 2
+Structured streaming
+Continuous applications
+Summary
+Chapter 2: Resilient Distributed Datasets
+Internal workings of an RDD
+Creating RDDs
+Schema
+Reading from files
+Lambda expressions
+Global versus local scope
+Transformations
+The .map(...) transformation
+The .filter(...) transformation
+The .flatMap(...) transformation
+https://www.iteblog.com

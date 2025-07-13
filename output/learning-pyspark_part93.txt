@@ -1,0 +1,28 @@
+Prepare Data for Modeling
+[ 70 ]
+Even from these relatively few numbers we can tell quite a bit:
+•
+All of the features are positively skewed. The maximum values are a number
+of times larger than the average.
+•
+The coefficient of variation (the ratio of mean to standard deviation) is very
+high (close or greater than 1), suggesting a wide spread of observations.
+Here's how you check the skeweness (we will do it for the 'balance' feature only):
+fraud_df.agg({'balance': 'skewness'}).show()
+The preceding code produces the following output:
+A list of aggregation functions (the names are fairly self-explanatory) includes:
+avg(), count(), countDistinct(), first(), kurtosis(), max(), mean(), min(),
+skewness(), stddev(), stddev_pop(), stddev_samp(), sum(), sumDistinct(),
+var_pop(), var_samp() and variance().
+Correlations
+Another highly useful measure of mutual relationships between features is
+correlation. Your model would normally include only those features that are highly
+correlated with your target. However, it is almost equally important to check the
+correlation between the features; including features that are highly correlated among
+them (that is, are collinear) may lead to unpredictable behavior of your model, or
+might unnecessarily complicate it.
+I talk more about multicollinearity in my other book, Practical Data
+Analysis Cookbook, Packt Publishing (https://www.packtpub.com/
+big-data-and-business-intelligence/practical-data-
+analysis-cookbook), in Chapter 5, Introducing MLlib, under the section
+titled Identifying and tackling multicollinearity.

@@ -1,0 +1,33 @@
+Understanding Spark
+[ 6 ]
+DataFrames
+DataFrames, like RDDs, are immutable collections of data distributed among the
+nodes in a cluster. However, unlike RDDs, in DataFrames data is organized into
+named columns.
+If you are familiar with Python's pandas or R data.frames, this is a
+similar concept.
+DataFrames were designed to make large data sets processing even easier. They
+allow developers to formalize the structure of the data, allowing higher-level
+abstraction; in that sense DataFrames resemble tables from the relational database
+world. DataFrames provide a domain specific language API to manipulate the
+distributed data and make Spark accessible to a wider audience, beyond specialized
+data engineers.
+One of the major benefits of DataFrames is that the Spark engine initially builds
+a logical execution plan and executes generated code based on a physical plan
+determined by a cost optimizer. Unlike RDDs that can be significantly slower on
+Python compared with Java or Scala, the introduction of DataFrames has brought
+performance parity across all the languages.
+Datasets
+Introduced in Spark 1.6, the goal of Spark Datasets is to provide an API that allows
+users to easily express transformations on domain objects, while also providing the
+performance and benefits of the robust Spark SQL execution engine. Unfortunately,
+at the time of writing this book Datasets are only available in Scala or Java. When
+they are available in PySpark we will cover them in future editions.
+Catalyst Optimizer
+Spark SQL is one of the most technically involved components of Apache Spark as
+it powers both SQL queries and the DataFrame API. At the core of Spark SQL is the
+Catalyst Optimizer. The optimizer is based on functional programming constructs
+and was designed with two purposes in mind: To ease the addition of new
+optimization techniques and features to Spark SQL and to allow external developers
+to extend the optimizer (for example, adding data source specific rules, support for
+new data types, and so on):

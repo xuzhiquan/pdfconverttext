@@ -1,0 +1,8 @@
+Learning PySpark
+Build data-intensive applications locally and deploy
+at scale using the combined powers of Python and
+Spark 2.0
+Tomasz Drabas
+Denny Lee
+BIRMINGHAM - MUMBAI
+https://www.iteblog.com

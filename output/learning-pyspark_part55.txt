@@ -1,0 +1,29 @@
+Resilient Distributed Datasets
+[ 32 ]
+The list of keys read matches what we had initially:
+The .foreach(...) method
+This is a method that applies the same function to each element of the RDD in an
+iterative way; in contrast to .map(..), the .foreach(...) method applies a defined
+function to each record in a one-by-one fashion. It is useful when you want to save
+the data to a database that is not natively supported by PySpark.
+Here, we'll use it to print (to CLI - not the Jupyter Notebook) all the records that are
+stored in data_key RDD:
+def f(x):
+print(x)
+data_key.foreach(f)
+If you now navigate to CLI you should see all the records printed out. Note, that
+every time the order will most likely be different.
+Summary
+RDDs are the backbone of Spark; these schema-less data structures are the most
+fundamental data structures that we will deal with within Spark.
+In this chapter, we presented ways to create RDDs from text files, by means of the
+.parallelize(...) method as well as by reading data from text files. Also, some
+ways of processing unstructured data were shown.
+Transformations in Spark are lazy - they are only applied when an action is called. In
+this chapter, we discussed and presented the most commonly used transformations
+and actions; the PySpark documentation contains many more http://spark.
+apache.org/docs/latest/api/python/pyspark.html#pyspark.RDD.
+One major distinction between Scala and Python RDDs is speed: Python RDDs can
+be much slower than their Scala counterparts.
+In the next chapter we will walk you through a data structure that made PySpark
+applications perform on par with those written in Scala - the DataFrames.

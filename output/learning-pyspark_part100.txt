@@ -1,0 +1,14 @@
+Chapter 4
+[ 77 ]
+The preceding code will produce the following chart:
+As you can see, there are plenty of fraudulent transactions that had 0 balance but
+many transactions—that is, a fresh card and big spike of transactions. However, no
+specific pattern can be shown apart from some banding occurring at $1,000 intervals.
+Summary
+In this chapter, we looked at how to clean and prepare your dataset for modeling
+by identifying and tackling datasets with missing values, duplicates, and outliers.
+We also looked at how to get a bit more familiar with your data using tools from
+PySpark (although this is by no means a full manual on how to analyze your
+datasets). Finally, we showed you how to chart your data.
+We will use these (and more) techniques in the next two chapters, where we will be
+building machine learning models.

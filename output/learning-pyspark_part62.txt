@@ -1,0 +1,33 @@
+Chapter 3
+[ 39 ]
+"name": "Michael",
+"age": 22,
+"eyeColor": "green"
+}""",
+"""{
+"id": "345",
+"name": "Simone",
+"age": 23,
+"eyeColor": "blue"
+}""")
+)
+Now that we have created the RDD, we will convert this into a DataFrame by using
+the SparkSession read.json method (that is, spark.read.json(...)). We will also
+create a temporary table by using the .createOrReplaceTempView method.
+In Spark 1.x, this method was.registerTempTable, which is being
+deprecated as part of Spark 2.x.
+Creating a DataFrame
+Here is the code to create a DataFrame:
+swimmersJSON = spark.read.json(stringJSONRDD)
+Creating a temporary table
+Here is the code for creating a temporary table:
+swimmersJSON.createOrReplaceTempView("swimmersJSON")
+As noted in the previous chapters, many RDD operations are transformations, which
+are not executed until an action operation is executed. For example, in the preceding
+code snippet, the sc.parallelize is a transformation that is executed when
+converting from an RDD to a DataFrame by using spark.read.json. Notice that, in
+the screenshot of this code snippet notebook (near the bottom left), the Spark job is
+not executed until the second cell containing the spark.read.json operation.
+These are screenshots from Databricks Community Edition, but all the
+code samples and Spark UI screenshots can be executed/viewed in any
+flavor of Apache Spark 2.x.

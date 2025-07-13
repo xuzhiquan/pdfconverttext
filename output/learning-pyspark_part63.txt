@@ -1,0 +1,15 @@
+DataFrames
+[ 40 ]
+To further emphasize the point, in the right pane of the following figure, we present
+the DAG graph of execution.
+A great resource to better understand the Spark UI DAG visualization
+is the blog post Understanding Your Apache Spark Application Through
+Visualization at http://bit.ly/2cSemkv.
+In the following screenshot, you can see the Spark job' sparallelize operation
+is from the first cell generating the RDD stringJSONRDD, while the map and
+mapPartitions operations are the operations required to create the DataFrame:
+Spark UI of the DAG visualization of the spark.read.json(stringJSONRDD) job.
+In the following screenshot, you can see the stages for the parallelize operation
+are from the first cell generating the RDD stringJSONRDD, while the map and
+mapPartitions operations are the operations required to create the DataFrame:
+https://www.iteblog.com

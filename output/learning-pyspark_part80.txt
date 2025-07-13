@@ -1,0 +1,25 @@
+Chapter 4
+[ 57 ]
+This is a very easy dataset with only seven rows. What do you do when you have
+millions of observations? The first thing I normally do is to check if I have any
+duplicates: I compare the counts of the full dataset with the one that I get after
+running a .distinct() method:
+print('Count of rows: {0}'.format(df.count()))
+print('Count of distinct rows: {0}'.format(df.distinct().count()))
+Here's what you get back for our DataFrame:
+If these two numbers differ, then you know you have, what I like to call, pure
+duplicates: rows that are exact copies of each other. We can drop these rows by
+using the .dropDuplicates(...) method:
+df = df.dropDuplicates()
+Our dataset will then look as follows (once you run df.show()):
+We dropped one of the rows with ID 3. Now let's check whether there are any
+duplicates in the data irrespective of ID. We can quickly repeat what we have
+done earlier, but using only columns other than the ID column:
+print('Count of ids: {0}'.format(df.count()))
+print('Count of distinct ids: {0}'.format(
+df.select([
+c for c in df.columns if c != 'id'
+]).distinct().count())
+)
+We should see one more row that is a duplicate:
+https://www.iteblog.com

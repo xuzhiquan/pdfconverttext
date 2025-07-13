@@ -1,0 +1,33 @@
+Chapter 2
+[ 21 ]
+To make it more readable, let's create a list of elements so each line is represented as
+a list of values.
+Lambda expressions
+In this example, we will extract the useful information from the cryptic looking
+record of data_from_file.
+Please refer to our GitHub repository for this book for the details of
+this method. Here, due to space constraints, we will only present an
+abbreviated version of the full method, especially where we create the
+Regex pattern. The code can be found here: https://github.com/
+drabastomek/learningPySpark/tree/master/Chapter03/
+LearningPySpark_Chapter03.ipynb.
+First, let's define the method with the help of the following code, which will parse
+the unreadable row into something that we can use:
+def extractInformation(row):
+import re
+import numpy as np
+selected_indices = [
+2,4,5,6,7,9,10,11,12,13,14,15,16,17,18,
+...
+77,78,79,81,82,83,84,85,87,89
+]
+record_split = re\
+.compile(
+r'([\s]{19})([0-9]{1})([\s]{40})
+...
+([\s]{33})([0-9\s]{3})([0-9\s]{1})([0-9\s]{1})')
+try:
+rs = np.array(record_split.split(row))[selected_indices]
+except:
+rs = np.array(['-99'] * len(selected_indices))
+return rs

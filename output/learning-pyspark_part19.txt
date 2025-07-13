@@ -1,0 +1,32 @@
+Preface
+[ viii ]
+What this book covers
+Chapter 1, Understanding Spark, provides an introduction into the Spark world with
+an overview of the technology and the jobs organization concepts.
+Chapter 2, Resilient Distributed Datasets, covers RDDs, the fundamental, schema-less
+data structure available in PySpark.
+Chapter 3, DataFrames, provides a detailed overview of a data structure that bridges
+the gap between Scala and Python in terms of efficiency.
+Chapter 4, Prepare Data for Modeling, guides the reader through the process of cleaning
+up and transforming data in the Spark environment.
+Chapter 5, Introducing MLlib, introduces the machine learning library that works on
+RDDs and reviews the most useful machine learning models.
+Chapter 6, Introducing the ML Package, covers the current mainstream machine
+learning library and provides an overview of all the models currently available.
+Chapter 7, GraphFrames, will guide you through the new structure that makes solving
+problems with graphs easy.
+Chapter 8, TensorFrames, introduces the bridge between Spark and the Deep Learning
+world of TensorFlow.
+Chapter 9, Polyglot Persistence with Blaze, describes how Blaze can be paired with
+Spark for even easier abstraction of data from various sources.
+Chapter 10, Structured Streaming, provides an overview of streaming tools available
+in PySpark.
+Chapter 11, Packaging Spark Applications, will guide you through the steps of
+modularizing your code and submitting it for execution to Spark through
+command-line interface.
+For more information, we have provided two bonus chapters as follows:
+Installing Spark: https://www.packtpub.com/sites/default/files/downloads/
+InstallingSpark.pdf
+Free Spark Cloud Offering: https://www.packtpub.com/sites/default/files/
+downloads/FreeSparkCloudOffering.pdf
+https://www.iteblog.com

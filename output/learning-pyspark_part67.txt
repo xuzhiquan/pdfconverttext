@@ -1,0 +1,23 @@
+DataFrames
+[ 44 ]
+The **kwargs construct allows you to pass a variable number of
+parameters to a method at runtime.
+Going back to the code, after initially creating the swimmersJSON DataFrame,
+without specifying the schema, you will notice the schema definition by using
+the printSchema() method:
+# Print the schema
+swimmersJSON.printSchema()
+This gives the following output:
+But what if we want to specify the schema because, in this example, we know that
+the id is actually a long instead of a string?
+Programmatically specifying the schema
+In this case, let's programmatically specify the schema by bringing in Spark SQL data
+types (pyspark.sql.types) and generate some .csv data for this example:
+# Import types
+from pyspark.sql.types import *
+# Generate comma delimited data
+stringCSVRDD = sc.parallelize([
+(123, 'Katie', 19, 'brown'),
+(234, 'Michael', 22, 'green'),
+(345, 'Simone', 23, 'blue')
+])

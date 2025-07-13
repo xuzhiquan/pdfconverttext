@@ -1,0 +1,28 @@
+Prepare Data for Modeling
+[ 68 ]
+Next, we read the data in and remove the header line using the .filter(...)
+method. This is followed by splitting the row on each comma (since this is a .csv
+file) and converting each element to an integer:
+fraud = sc.textFile('ccFraud.csv.gz')
+header = fraud.first()
+fraud = fraud \
+.filter(lambda row: row != header) \
+.map(lambda row: [int(elem) for elem in row.split(',')])
+Next, we create the schema for our DataFrame:
+fields = [
+*[
+typ.StructField(h[1:-1], typ.IntegerType(), True)
+for h in header.split(',')
+]
+]
+schema = typ.StructType(fields)
+Finally, we create our DataFrame:
+fraud_df = spark.createDataFrame(fraud, schema)
+Having created our fraud_df DataFrame, we can calculate the basic descriptive
+statistics for our dataset. However, you need to remember that even though all of
+our features appear as numeric in nature, some of them are categorical (for example,
+gender or state).
+Here's the schema of our DataFrame:
+fraud_df.printSchema()
+The representation is shown here:
+https://www.iteblog.com

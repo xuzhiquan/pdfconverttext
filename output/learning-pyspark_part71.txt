@@ -1,0 +1,17 @@
+DataFrames
+[ 48 ]
+Running filter statements using the where
+Clauses
+To run a filter statement using SQL, you can use the where clause, as noted in the
+following code snippet:
+# Get the id, age where age = 22 in SQL
+spark.sql("select id, age from swimmers where age = 22").show()
+The output of this query is to choose only the id and age columns where age = 22:
+As with the DataFrame API querying, if we want to get back the name of the
+swimmers who have an eye color that begins with the letter b only, we can use
+the like syntax as well:
+spark.sql(
+"select name, eyeColor from swimmers where eyeColor like 'b%'").show()
+The output is as follows:
+For more information, please refer to the Spark SQL, DataFrames, and
+Datasets Guide at http://bit.ly/2cd1wyx.

@@ -1,0 +1,23 @@
+Chapter 2
+[ 23 ]
+Running data_from_file_conv.take(1) will produce the following result
+(abbreviated):
+Global versus local scope
+One of the things that you, as a prospective PySpark user, need to get used to is the
+inherent parallelism of Spark. Even if you are proficient in Python, executing scripts
+in PySpark requires shifting your thinking a bit.
+Spark can be run in two modes: Local and cluster. When you run Spark locally
+your code might not differ to what you are currently used to with running Python:
+Changes would most likely be more syntactic than anything else but with an added
+twist that data and code can be copied between separate worker processes.
+However, taking the same code and deploying it to a cluster might cause a lot of
+head-scratching if you are not careful. This requires understanding how Spark
+executes a job on the cluster.
+In the cluster mode, when a job is submitted for execution, the job is sent to
+the driver (or a master) node. The driver node creates a DAG (see Chapter 1,
+Understanding Spark) for a job and decides which executor (or worker) nodes will run
+specific tasks.
+The driver then instructs the workers to execute their tasks and return the results
+to the driver when done. Before that happens, however, the driver prepares each
+task's closure: A set of variables and methods present on the driver for the worker
+to execute its task on the RDD.

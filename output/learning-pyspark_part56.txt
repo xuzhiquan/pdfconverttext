@@ -1,0 +1,25 @@
+[ 33 ]
+DataFrames
+A DataFrame is an immutable distributed collection of data that is organized into
+named columns analogous to a table in a relational database. Introduced as an
+experimental feature within Apache Spark 1.0 as SchemaRDD, they were renamed to
+DataFrames as part of the Apache Spark 1.3 release. For readers who are familiar
+with Python Pandas DataFrame or R DataFrame, a Spark DataFrame is a similar
+concept in that it allows users to easily work with structured data (for example, data
+tables); there are some differences as well so please temper your expectations.
+By imposing a structure onto a distributed collection of data, this allows Spark
+users to query structured data in Spark SQL or using expression methods (instead
+of lambdas). In this chapter, we will include code samples using both methods. By
+structuring your data, this allows the Apache Spark engine – specifically, the Catalyst
+Optimizer – to significantly improve the performance of Spark queries. In earlier
+APIs of Spark (that is, RDDs), executing queries in Python could be significantly
+slower due to communication overhead between the Java JVM and Py4J.
+If you are familiar with working with DataFrames in previous versions
+of Spark (that is Spark 1.x), you will notice that in Spark 2.0 we are using
+SparkSession instead of SQLContext. The various Spark contexts:
+HiveContext, SQLContext, StreamingContext, and SparkContext
+have merged together in SparkSession. This way you will be working
+with this session only as an entry point for reading data, working with
+metadata, configuration, and cluster resource management.
+For more information, please refer to How to use SparkSession in Apache
+Spark 2.0(http://bit.ly/2br0Fr1).

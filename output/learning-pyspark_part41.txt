@@ -1,0 +1,32 @@
+Resilient Distributed Datasets
+[ 18 ]
+The transformations to the dataset are lazy. This means that any transformation is
+only executed when an action on a dataset is called. This helps Spark to optimize the
+execution. For instance, consider the following very common steps that an analyst
+would normally do to get familiar with a dataset:
+1.	 Count the occurrence of distinct values in a certain column.
+2.	 Select those that start with an A.
+3.	 Print the results to the screen.
+As simple as the previously mentioned steps sound, if only items that start with the
+letter A are of interest, there is no point in counting distinct values for all the other
+items. Thus, instead of following the execution as outlined in the preceding points,
+Spark could only count the items that start with A, and then print the results to the
+screen.
+Let's break this example down in code. First, we order Spark to map the values of A
+using the .map(lambda v: (v, 1)) method, and then select those records that start
+with an 'A' (using the .filter(lambda val: val.startswith('A')) method).
+If we call the .reduceByKey(operator.add) method it will reduce the dataset and
+add (in this example, count) the number of occurrences of each key. All of these steps
+transform the dataset.
+Second, we call the .collect() method to execute the steps. This step is an action
+on our dataset - it finally counts the distinct elements of the dataset. In effect, the
+action might reverse the order of transformations and filter the data first before
+mapping, resulting in a smaller dataset being passed to the reducer.
+Do not worry if you do not understand the previous commands yet - we
+will explain them in detail later in this chapter.
+Creating RDDs
+There are two ways to create an RDD in PySpark: you can either
+.parallelize(...) a collection (list or an array of some elements):
+data = sc.parallelize(
+[('Amber', 22), ('Alfred', 23), ('Skye',4), ('Albert', 12),
+('Amber', 9)])

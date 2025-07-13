@@ -1,0 +1,32 @@
+Introducing MLlib
+[ 80 ]
+Overview of the package
+At the high level, MLlib exposes three core machine learning functionalities:
+•
+Data preparation: Feature extraction, transformation, selection, hashing of
+categorical features, and some natural language processing methods
+•
+Machine learning algorithms: Some popular and advanced regression,
+classification, and clustering algorithms are implemented
+•
+Utilities: Statistical methods such as descriptive statistics, chi-square testing,
+linear algebra (sparse and dense matrices and vectors), and model evaluation
+methods
+As you can see, the palette of available functionalities allows you to perform almost
+all of the fundamental data science tasks.
+In this chapter, we will build two classification models: a linear regression and
+a random forest. We will use a portion of the US 2014 and 2015 birth data we
+downloaded from http://www.cdc.gov/nchs/data_access/vitalstatsonline.
+htm; from the total of 300 variables we selected 85 features that we will use to build
+our models. Also, out of the total of almost 7.99 million records, we selected a
+balanced sample of 45,429 records: 22,080 records where infants were reported dead
+and 23,349 records with infants alive.
+The dataset we will use in this chapter can be downloaded from http://
+www.tomdrabas.com/data/LearningPySpark/births_train.
+csv.gz.
+Loading and transforming the data
+Even though MLlib is designed with RDDs and DStreams in focus, for ease of
+transforming the data we will read the data and convert it to a DataFrame.
+The DStreams are the basic data abstraction for Spark Streaming (see
+http://bit.ly/2jIDT2A)
+Just like in the previous chapter, we first specify the schema of our dataset.

@@ -1,0 +1,26 @@
+[ 17 ]
+Resilient Distributed Datasets
+Resilient Distributed Datasets (RDDs) are a distributed collection of immutable JVM
+objects that allow you to perform calculations very quickly, and they are the backbone
+of Apache Spark.
+As the name suggests, the dataset is distributed; it is split into chunks based on some
+key and distributed to executor nodes. Doing so allows for running calculations
+against such datasets very quickly. Also, as already mentioned in Chapter 1,
+Understanding Spark, RDDs keep track (log) of all the transformations applied to each
+chunk to speed up the computations and provide a fallback if things go wrong and
+that portion of the data is lost; in such cases, RDDs can recompute the data. This data
+lineage is another line of defense against data loss, a complement to data replication.
+The following topics are covered in this chapter:
+•
+Internal workings of an RDD
+•
+Creating RDDs
+•
+Global versus local scopes
+•
+Transformations
+•
+Actions
+Internal workings of an RDD
+RDDs operate in parallel. This is the strongest advantage of working in Spark: Each
+transformation is executed in parallel for enormous increase in speed.

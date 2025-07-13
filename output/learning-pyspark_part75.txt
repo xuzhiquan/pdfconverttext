@@ -1,0 +1,16 @@
+DataFrames
+[ 52 ]
+This is the same as the previous query, but due to formatting, easier to read. In our
+Databricks notebook example, we can quickly visualize this data into a bar chart:
+Visualizing our flight-performance data
+Let's continue visualizing our data, but broken down by all states in the continental
+US:
+%sql
+-- Query Sum of Flight Delays by State (for the US)
+select a.State, sum(f.delay) as Delays
+from FlightPerformance f
+join airports a
+on a.IATA = f.origin
+where a.Country = 'USA'
+group by a.State
+The output bar chart is as follows:

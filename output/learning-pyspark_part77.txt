@@ -1,0 +1,24 @@
+DataFrames
+[ 54 ]
+Conceptually, the Spark DataFrame is an alias for a collection of generic objects
+Dataset[Row], where a Row is a generic untyped JVM object. Dataset, by contrast, is
+a collection of strongly-typed JVM objects, dictated by a case class you define, in Scala
+or Java. This last point is particularly important as this means that the Dataset API
+is not supported by PySpark due to the lack of benefit from the type enhancements.
+Note, for the parts of the Dataset API that are not available in PySpark, they can be
+accessed by converting to an RDD or by using UDFs. For more information, please
+refer to the jira [SPARK-13233]: Python Dataset at http://bit.ly/2dbfoFT.
+Summary
+With Spark DataFrames, Python developers can make use of a simpler abstraction
+layer that is also potentially significantly faster. One of the main reasons Python is
+initially slower within Spark is due to the communication layer between Python
+sub-processes and the JVM. For Python DataFrame users, we have a Python wrapper
+around Scala DataFrames that avoids the Python sub-process/JVM communication
+overhead. Spark DataFrames has many performance enhancements through the
+Catalyst Optimizer and Project Tungsten which we have reviewed in this chapter.
+In this chapter, we also reviewed how to work with Spark DataFrames and worked
+on an on-time flight performance scenario using DataFrames.
+In this chapter, we created and worked with DataFrames by generating the data or
+making use of existing datasets.
+In the next chapter, we will discuss how to transform and understand your
+own data.

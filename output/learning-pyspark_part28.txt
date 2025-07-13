@@ -1,0 +1,33 @@
+Chapter 1
+[ 5 ]
+At the same time, RDDs expose some coarse-grained transformations (such as
+map(...), reduce(...), and filter(...) which we will cover in greater detail in
+Chapter 2, Resilient Distributed Datasets), keeping the flexibility and extensibility of
+the Hadoop platform to perform a wide variety of calculations. RDDs apply and log
+transformations to the data in parallel, resulting in both increased speed and fault-
+tolerance. By registering the transformations, RDDs provide data lineage - a form
+of an ancestry tree for each intermediate step in the form of a graph. This, in effect,
+guards the RDDs against data loss - if a partition of an RDD is lost it still has enough
+information to recreate that partition instead of simply depending on replication.
+If you want to learn more about data lineage check this link
+http://ibm.co/2ao9B1t.
+RDDs have two sets of parallel operations: transformations (which return pointers
+to new RDDs) and actions (which return values to the driver after running a
+computation); we will cover these in greater detail in later chapters.
+For the latest list of transformations and actions, please refer to
+the Spark Programming Guide at http://spark.apache.org/
+docs/latest/programming-guide.html#rdd-operations.
+RDD transformation operations are lazy in a sense that they do not compute their
+results immediately. The transformations are only computed when an action is
+executed and the results need to be returned to the driver. This delayed execution
+results in more fine-tuned queries: Queries that are optimized for performance.
+This optimization starts with Apache Spark's DAGScheduler – the stage oriented
+scheduler that transforms using stages as seen in the preceding screenshot. By
+having separate RDD transformations and actions, the DAGScheduler can perform
+optimizations in the query including being able to avoid shuffling, the data (the most
+resource intensive task).
+For more information on the DAGScheduler and optimizations (specifically
+around narrow or wide dependencies), a great reference is the Narrow vs. Wide
+Transformations section in High Performance Spark in Chapter 5, Effective Transformations
+(https://smile.amazon.com/High-Performance-Spark-Practices-
+Optimizing/dp/1491943203).

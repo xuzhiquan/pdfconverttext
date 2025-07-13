@@ -1,0 +1,30 @@
+Chapter 4
+[ 65 ]
+Now we can use the definition we outlined previously to flag the outliers.
+First, we calculate the lower and upper cut off points for each feature. We will use
+the .approxQuantile(...) method. The first parameter specified is the name of
+the column, the second parameter can be either a number between 0 or 1 (where
+0.5 means to calculated median) or a list (as in our case), and the third parameter
+specifies the acceptable level of an error for each metric (if set to 0, it will calculate
+an exact value for the metric, but it can be really expensive to do so):
+cols = ['weight', 'height', 'age']
+bounds = {}
+for col in cols:
+quantiles = df_outliers.approxQuantile(
+col, [0.25, 0.75], 0.05
+)
+IQR = quantiles[1] - quantiles[0]
+bounds[col] = [
+quantiles[0] - 1.5 * IQR,
+quantiles[1] + 1.5 * IQR
+]
+The bounds dictionary holds the lower and upper bounds for each feature:
+Let's now use it to flag our outliers:
+outliers = df_outliers.select(*['id'] + [
+(
+(df_outliers[c] < bounds[c][0]) |
+(df_outliers[c] > bounds[c][1])
+).alias(c + '_o') for c in cols
+])
+outliers.show()
+https://www.iteblog.com

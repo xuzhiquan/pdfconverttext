@@ -1,0 +1,18 @@
+Chapter 3
+[ 41 ]
+Spark UI of the DAG visualization of the stages within the spark.read.json(stringJSONRDD) job.
+It is important to note that parallelize, map, and mapPartitions are all RDD
+transformations. Wrapped within the DataFrame operation, spark.read.json (in
+this case), are not only the RDD transformations, but also the action which converts
+the RDD into a DataFrame. This is an important call out, because even though you
+are executing DataFrame operations, to debug your operations you will need to
+remember that you will be making sense of RDD operations within the Spark UI.
+Note that creating the temporary table is a DataFrame transformation and not
+executed until a DataFrame action is executed (for example, in the SQL query to be
+executed in the following section).
+DataFrame transformations and actions are similar to RDD
+transformations and actions in that there is a set of operations that
+are lazy (transformations). But, in comparison to RDDs, DataFrames
+operations are not as lazy, primarily due to the Catalyst Optimizer. For
+more information, please refer to Holden Karau and Rachel Warren's
+book High Performance Spark, http://highperformancespark.com/.

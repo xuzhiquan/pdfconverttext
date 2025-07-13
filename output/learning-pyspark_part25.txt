@@ -1,0 +1,28 @@
+Understanding Spark
+[ 2 ]
+What is Apache Spark?
+Apache Spark is an open-source powerful distributed querying and processing
+engine. It provides flexibility and extensibility of MapReduce but at significantly
+higher speeds: Up to 100 times faster than Apache Hadoop when data is stored in
+memory and up to 10 times when accessing disk.
+Apache Spark allows the user to read, transform, and aggregate data, as well as train
+and deploy sophisticated statistical models with ease. The Spark APIs are accessible
+in Java, Scala, Python, R and SQL. Apache Spark can be used to build applications or
+package them up as libraries to be deployed on a cluster or perform quick analytics
+interactively through notebooks (like, for instance, Jupyter, Spark-Notebook,
+Databricks notebooks, and Apache Zeppelin).
+Apache Spark exposes a host of libraries familiar to data analysts, data scientists
+or researchers who have worked with Python's pandas or R's data.frames or
+data.tables. It is important to note that while Spark DataFrames will be familiar
+to pandas or data.frames / data.tables users, there are some differences so
+please temper your expectations. Users with more of a SQL background can use the
+language to shape their data as well. Also, delivered with Apache Spark are several
+already implemented and tuned algorithms, statistical models, and frameworks:
+MLlib and ML for machine learning, GraphX and GraphFrames for graph
+processing, and Spark Streaming (DStreams and Structured). Spark allows the user
+to combine these libraries seamlessly in the same application.
+Apache Spark can easily run locally on a laptop, yet can also easily be deployed in
+standalone mode, over YARN, or Apache Mesos - either on your local cluster or
+in the cloud. It can read and write from a diverse data sources including (but not
+limited to) HDFS, Apache Cassandra, Apache HBase, and S3:
+Source: Apache Spark is the smartphone of Big Data http://bit.ly/1QsgaNj

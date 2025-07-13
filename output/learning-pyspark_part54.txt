@@ -1,0 +1,30 @@
+Chapter 2
+[ 31 ]
+The .count(...) method
+The .count(...) method counts the number of elements in the RDD. Use the
+following code:
+data_reduce.count()
+This code will produce 6, the exact number of elements in the data_reduce RDD.
+The .count(...) method produces the same result as the following method, but it
+does not require moving the whole dataset to the driver:
+len(data_reduce.collect()) # WRONG -- DON'T DO THIS!
+If your dataset is in a key-value form, you can use the .countByKey() method to get
+the counts of distinct keys. Run the following code:
+data_key.countByKey().items()
+This code will produce the following output:
+The .saveAsTextFile(...) method
+As the name suggests, the .saveAsTextFile(...) the RDD and saves it to text files:
+Each partition to a separate file:
+data_key.saveAsTextFile(
+'/Users/drabast/Documents/PySpark_Data/data_key.txt')
+To read it back, you need to parse it back as all the rows are treated as strings:
+def parseInput(row):
+import re
+pattern = re.compile(r'\(\'([a-z])\', ([0-9])\)')
+row_split = pattern.split(row)
+return (row_split[1], int(row_split[2]))
+data_key_reread = sc \
+.textFile(
+'/Users/drabast/Documents/PySpark_Data/data_key.txt') \
+.map(parseInput)
+data_key_reread.collect()

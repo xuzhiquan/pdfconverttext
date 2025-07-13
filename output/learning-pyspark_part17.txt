@@ -1,0 +1,31 @@
+Table of Contents
+[ vi ]
+Reducing data
+Joins
+Summary
+Chapter 10: Structured Streaming
+What is Spark Streaming?
+Why do we need Spark Streaming?
+What is the Spark Streaming application data flow?
+Simple streaming application using DStreams
+A quick primer on global aggregations
+Introducing Structured Streaming
+Summary
+Chapter 11: Packaging Spark Applications
+The spark-submit command
+Command line parameters
+Deploying the app programmatically
+Configuring your SparkSession
+Creating SparkSession
+Modularizing code
+Structure of the module
+Calculating the distance between two points
+Converting distance units
+Building an egg
+User defined functions in Spark
+Submitting a job
+Monitoring execution
+Databricks Jobs
+Summary
+Index
+https://www.iteblog.com

@@ -1,0 +1,16 @@
+Prepare Data for Modeling
+[ 66 ]
+The preceding code produces the following output:
+We have two outliers in the weight feature and two in the age feature. By now
+you should know how to extract these, but here is a snippet that lists the values
+significantly differing from the rest of the distribution:
+df_outliers = df_outliers.join(outliers, on='id')
+df_outliers.filter('weight_o').select('id', 'weight').show()
+df_outliers.filter('age_o').select('id', 'age').show()
+The preceding code will give you the following output:
+Equipped with the methods described in this section, you can quickly clean up even
+the biggest of datasets.
+Getting familiar with your data
+Although we would strongly discourage such behavior, you can build a model
+without knowing your data; it will most likely take you longer, and the quality
+of the resulting model might be less than optimal, but it is doable.

@@ -1,0 +1,27 @@
+Resilient Distributed Datasets
+[ 22 ]
+A word of caution here is necessary. Defining pure Python methods can
+slow down your application as Spark needs to continuously switch back
+and forth between the Python interpreter and JVM. Whenever you can,
+you should use built-in Spark functions.
+Next, we import the necessary modules: The re module as we will use regular
+expressions to parse the record, and NumPy for ease of selecting multiple elements
+at once.
+Finally, we create a Regex object to extract the information as specified and parse the
+row through it.
+We will not be delving into details here describing Regular
+Expressions. A good compendium on the topic can be found here
+https://www.packtpub.com/application-development/
+mastering-python-regular-expressions.
+Once the record is parsed, we try to convert the list into a NumPy array and return it;
+if this fails we return a list of default values -99 so we know this record did not
+parse properly.
+We could implicitly filter out the malformed records by using
+.flatMap(...) and return an empty list [] instead of -99
+values. Check this for details: http://stackoverflow.com/
+questions/34090624/remove-elements-from-spark-rdd
+Now, we will use the extractInformation(...) method to split and convert our
+dataset. Note that we pass only the method signature to .map(...): the method will
+hand over one element of the RDD to the extractInformation(...) method at a
+time in each partition:
+data_from_file_conv = data_from_file.map(extractInformation)

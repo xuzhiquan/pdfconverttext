@@ -1,0 +1,29 @@
+DataFrames
+[ 34 ]
+In this chapter, you will learn about the following:
+•
+Python to RDD communications
+•
+A quick refresh of Spark's Catalyst Optimizer
+•
+Speeding up PySpark with DataFrames
+•
+Creating DataFrames
+•
+Simple DataFrame queries
+•
+Interoperating with RDDs
+•
+Querying with the DataFrame API
+•
+Querying with Spark SQL
+•
+Using DataFrames for an on-time flight performance
+Python to RDD communications
+Whenever a PySpark program is executed using RDDs, there is a potentially large
+overhead to execute the job. As noted in the following diagram, in the PySpark
+driver, the Spark Context uses Py4j to launch a JVM using the JavaSparkContext.
+Any RDD transformations are initially mapped to PythonRDD objects in Java.
+Once these tasks are pushed out to the Spark Worker(s), PythonRDD objects launch
+Python subprocesses using pipes to send both code and data to be processed within
+Python:

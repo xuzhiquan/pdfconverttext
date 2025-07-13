@@ -1,0 +1,39 @@
+Prepare Data for Modeling
+[ 60 ]
+Missing observations
+You will frequently encounter datasets with blanks in them. The missing values can
+happen for a variety of reasons: systems failure, people error, data schema changes,
+just to name a few.
+The simplest way to deal with missing values, if your data can afford it, is to drop
+the whole observation when any missing value is found. You have to be careful not
+to drop too many: depending on the distribution of the missing values across your
+dataset it might severely affect the usability of your dataset. If, after dropping the
+rows, I end up with a very small dataset, or find that the reduction in data size is
+more than 50%, I start checking my data to see what features have the most holes
+in them and perhaps exclude those altogether; if a feature has most of its values
+missing (unless a missing value bears a meaning), from a modeling point of view,
+it is fairly useless.
+The other way to deal with the observations with missing values is to impute some
+value in place of those Nones. Given the type of your data, you have several options
+to choose from:
+•
+If your data is a discrete Boolean, you can turn it into a categorical variable
+by adding a third category — Missing
+•
+If your data is already categorical, you can simply extend the number of
+levels and add the Missing category as well
+•
+If you're dealing with ordinal or numerical data, you can impute either mean,
+median, or some other predefined value (for example, first or third quartile,
+depending on the distribution shape of your data)
+Consider a similar example to the one we presented previously:
+df_miss = spark.createDataFrame([
+(1, 143.5, 5.6, 28,   'M',  100000),
+(2, 167.2, 5.4, 45,   'M',  None),
+(3, None , 5.2, None, None, None),
+(4, 144.5, 5.9, 33,   'M',  None),
+(5, 133.2, 5.7, 54,   'F',  None),
+(6, 124.1, 5.2, None, 'F',  None),
+(7, 129.2, 5.3, 42,   'M',  76000),
+], ['id', 'weight', 'height', 'age', 'gender', 'income'])
+In our example, we deal with a number of missing values categories.

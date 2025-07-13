@@ -1,0 +1,23 @@
+[ 79 ]
+Introducing MLlib
+In the previous chapter, we learned how to prepare the data for modeling. In this
+chapter, we will actually use some of that learning to build a classification model
+using the MLlib package of PySpark.
+MLlib stands for Machine Learning Library. Even though MLlib is now in a
+maintenance mode, that is, it is not actively being developed (and will most likely
+be deprecated later), it is warranted that we cover at least some of the features of the
+library. In addition, MLlib is currently the only library that supports training models
+for streaming.
+Starting with Spark 2.0, ML is the main machine learning library that
+operates on DataFrames instead of RDDs as is the case for MLlib.
+The documentation for MLlib can be found here: http://spark.
+apache.org/docs/latest/api/python/pyspark.mllib.html.
+In this chapter, you will learn how to do the following:
+•
+Prepare the data for modeling with MLlib
+•
+Perform statistical testing
+•
+Predict survival chances of infants using logistic regression
+•
+Select the most predictable features and train a random forest model

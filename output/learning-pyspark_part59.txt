@@ -1,0 +1,36 @@
+DataFrames
+[ 36 ]
+As noted in earlier chapters, while the Spark SQL Engine has both rules-
+based and cost-based optimizations that include (but are not limited
+to) predicate push down and column pruning. Targeted for the Apache
+Spark 2.2 release, the jira item [SPARK-16026] Cost-based Optimizer
+Framework at https://issues.apache.org/jira/browse/
+SPARK-16026 is an umbrella ticket to implement a cost-based optimizer
+framework beyond broadcast join selection. For more information,
+please refer to the Design Specification of Spark Cost-Based Optimization at
+http://bit.ly/2li1t4T.
+As part of Project Tungsten, there are further improvements to performance by
+generating byte code (code generation or codegen) instead of interpreting each row
+of data. Find more details on Tungsten in the Project Tungsten section in Chapter 1,
+Understanding Spark.
+As previously noted, the optimizer is based on functional programming
+constructs and was designed with two purposes in mind: to ease the adding of new
+optimization techniques and features to Spark SQL, and to allow external developers
+to extend the optimizer (for example, adding data-source-specific rules, support for
+new data types, and so on).
+For more information, please refer to Michael Armbrust's excellent
+presentation, Structuring Spark: SQL DataFrames, Datasets, and Streaming
+at http://bit.ly/2cJ508x.
+For further understanding of the Catalyst Optimizer, please refer to Deep
+Dive into Spark SQL's Catalyst Optimizer at http://bit.ly/2bDVB1T.
+Also, for more information on Project Tungsten, please refer to Project
+Tungsten: Bringing Apache Spark Closer to Bare Metal at http://bit.
+ly/2bQIlKY, and Apache Spark as a Compiler: Joining a Billion Rows per
+Second on a Laptop at http://bit.ly/2bDWtnc.
+Speeding up PySpark with DataFrames
+The significance of DataFrames and the Catalyst Optimizer (and Project Tungsten) is
+the increase in performance of PySpark queries when compared to non-optimized
+RDD queries. As shown in the following figure, prior to the introduction of
+DataFrames, Python query speeds were often twice as slow as the same Scala
+queries using RDD. Typically, this slowdown in query performance was due
+to the communications overhead between Python and the JVM:

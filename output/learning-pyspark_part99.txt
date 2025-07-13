@@ -1,0 +1,30 @@
+Prepare Data for Modeling
+[ 76 ]
+Interactions between features
+Scatter charts allow us to visualize interactions between up to three variables at a
+time (although we will be only presenting a 2D interaction in this section).
+You should rarely revert to 3D visualizations unless you are dealing with
+some temporal data and you want to observe changes over time. Even
+then, we would rather discretize the time data and present a series of 2D
+charts, as interpreting 3D charts is somewhat more complicated and (most
+of the time) confusing.
+Since PySpark does not offer any visualization modules on the server side, and
+trying to plot billions of observations at the same time would be highly impractical,
+in this section we will sample the dataset at 0.02% (roughly 2,000 observations).
+Unless you chose a stratified sampling, you should create at least three
+to five samples at a predefined sampling fraction so you can check if
+your sample is somewhat representative of your dataset—that is, that the
+differences between your samples are not big.
+In this example, we will sample our fraud dataset at 0.02% given 'gender'
+as a strata:
+data_sample = fraud_df.sampleBy(
+'gender', {1: 0.0002, 2: 0.0002}
+).select(numerical)
+To put multiple 2D charts in one go, you can use the following code:
+data_multi = dict([
+(elem, data_sample.select(elem).rdd \
+.flatMap(lambda row: row).collect())
+for elem in numerical
+])
+sctr = chrt.Scatter(data_multi, x='balance', y='numTrans')
+chrt.show(sctr)

@@ -1,0 +1,22 @@
+Understanding Spark
+[ 10 ]
+The unification of the DataFrame and Dataset APIs has the potential of creating
+breaking changes to backwards compatibility. This was one of the main reasons
+Apache Spark 2.0 was a major release (as opposed to a 1.x minor release which
+would have minimized any breaking changes). As you can see from the following
+diagram, DataFrame and Dataset both belong to the new Dataset API introduced
+as part of Apache Spark 2.0:
+Source: A Tale of Three Apache Spark APIs: RDDs, DataFrames, and Datasets http://bit.ly/2accSNA
+As noted previously, the Dataset API provides a type-safe, object-oriented
+programming interface. Datasets can take advantage of the Catalyst optimizer by
+exposing expressions and data fields to the query planner and Project Tungsten's
+Fast In-memory encoding. But with DataFrame and Dataset now unified as part of
+Apache Spark 2.0, DataFrame is now an alias for the Dataset Untyped API. More
+specifically:
+DataFrame = Dataset[Row]
+Introducing SparkSession
+In the past, you would potentially work with SparkConf, SparkContext,
+SQLContext, and HiveContext to execute your various Spark queries for
+configuration, Spark context, SQL context, and Hive context respectively.
+The SparkSession is essentially the combination of these contexts including
+StreamingContext.

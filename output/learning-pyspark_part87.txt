@@ -1,0 +1,30 @@
+Prepare Data for Modeling
+[ 64 ]
+Note that calling the .toPandas() can be problematic, as the method
+works essentially in the same way as .collect() in RDDs. It collects
+all the information from the workers and brings it over to the driver. It
+is unlikely to be a problem with the preceding dataset, unless you have
+thousands upon thousands of features.
+The records parameter to the .to_dict(...) method of pandas instructs it to
+create the following dictionary:
+Since we cannot calculate the average (or any other numeric metric of a categorical
+variable), we added the missing category to the dictionary for the gender feature.
+Note that, even though the mean of the age column is 40.40, when imputed, the type
+of the df_miss_no_income.age column was preserved—it is still an integer.
+Outliers
+Outliers are those observations that deviate significantly from the distribution of
+the rest of your sample. The definitions of significance vary, but in the most general
+form, you can accept that there are no outliers if all the values are roughly within
+the Q1−1.5IQR and Q3+1.5IQR range, where IQR is the interquartile range; the IQR
+is defined as a difference between the upper- and lower-quartiles, that is, the 75th
+percentile (the Q3) and 25th percentile (the Q1), respectively.
+Let's, again, consider a simple example:
+df_outliers = spark.createDataFrame([
+(1, 143.5, 5.3, 28),
+(2, 154.2, 5.5, 45),
+(3, 342.3, 5.1, 99),
+(4, 144.5, 5.5, 33),
+(5, 133.2, 5.4, 54),
+(6, 124.1, 5.1, 21),
+(7, 129.2, 5.3, 42),
+], ['id', 'weight', 'height', 'age'])

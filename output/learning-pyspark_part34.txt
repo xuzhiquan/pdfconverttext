@@ -1,0 +1,31 @@
+Chapter 1
+[ 11 ]
+For example, instead of writing:
+df = sqlContext.read \
+.format('json').load('py/test/sql/people.json')
+now you can write:
+df = spark.read.format('json').load('py/test/sql/people.json')
+or:
+df = spark.read.json('py/test/sql/people.json')
+The SparkSession is now the entry point for reading data, working with metadata,
+configuring the session, and managing the cluster resources.
+Tungsten phase 2
+The fundamental observation of the computer hardware landscape when the
+project started was that, while there were improvements in price per performance in
+RAM memory, disk, and (to an extent) network interfaces, the price per performance
+advancements for CPUs were not the same. Though hardware manufacturers could
+put more cores in each socket (i.e. improve performance through parallelization),
+there were no significant improvements in the actual core speed.
+Project Tungsten was introduced in 2015 to make significant changes to the
+Spark engine with the focus on improving performance. The first phase of these
+improvements focused on the following facets:
+•
+Memory Management and Binary Processing: Leveraging application
+semantics to manage memory explicitly and eliminate the overhead of
+the JVM object model and garbage collection
+•
+Cache-aware computation: Algorithms and data structures to exploit
+memory hierarchy
+•
+Code generation: Using code generation to exploit modern compilers
+and CPUs

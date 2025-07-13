@@ -1,0 +1,17 @@
+Understanding Spark
+[ 14 ]
+Continuous applications
+Altogether, Apache Spark 2.0 not only unified DataFrames and Datasets but also
+unified streaming, interactive, and batch queries. This opens a whole new set of use
+cases including the ability to aggregate data into a stream and then serving it using
+traditional JDBC/ODBC, to change queries at run time, and/or to build and apply
+ML models in for many scenario in a variety of latency use cases:
+Source: Apache Spark Key Terms, Explained https://databricks.com/blog/2016/06/22/
+apache-spark-key-terms-explained.html.
+Together, you can now build end-to-end continuous applications, in which you
+can issue the same queries to batch processing as to real-time data, perform ETL,
+generate reports, update or track specific data in the stream.
+For more information on continuous applications, please refer to Matei
+Zaharia's blog post Continuous Applications: Evolving Streaming in Apache
+Spark 2.0 - A foundation for end-to-end real-time applications http://bit.
+ly/2aJaSOr.

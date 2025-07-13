@@ -1,0 +1,40 @@
+Preface
+[ xi ]
+You can download the code files by following these steps:
+1.	 Log in or register to our website using your e-mail address and password.
+2.	 Hover the mouse pointer on the SUPPORT tab at the top.
+3.	 Click on Code Downloads & Errata.
+4.	 Enter the name of the book in the Search box.
+5.	 Select the book for which you're looking to download the code files.
+6.	 Choose from the drop-down menu where you purchased this book from.
+7.	 Click on Code Download.
+Once the file is downloaded, please make sure that you unzip or extract the folder
+using the latest version of:
+•
+WinRAR / 7-Zip for Windows
+•
+Zipeg / iZip / UnRarX for Mac
+•
+7-Zip / PeaZip for Linux
+The code bundle for the book is also hosted on GitHub at https://github.
+com/PacktPublishing/Learning-PySpark. We also have other code bundles
+from our rich catalog of books and videos available at https://github.com/
+PacktPublishing/. Check them out!
+Downloading the color images of this book
+We also provide you with a PDF file that has color images of the screenshots/
+diagrams used in this book. The color images will help you better understand the
+changes in the output. You can download this file from https://www.packtpub.
+com/sites/default/files/downloads/LearningPySpark_ColorImages.pdf.
+Errata
+Although we have taken every care to ensure the accuracy of our content, mistakes
+do happen. If you find a mistake in one of our books—maybe a mistake in the text
+or the code—we would be grateful if you would report this to us. By doing so,
+you can save other readers from frustration and help us improve subsequent
+versions of this book. If you find any errata, please report them by visiting http://
+www.packtpub.com/submit-errata, selecting your book, clicking on the errata
+submission form link, and entering the details of your errata. Once your errata
+are verified, your submission will be accepted and the errata will be uploaded on
+our website, or added to any list of existing errata, under the Errata section of that
+title. Any existing errata can be viewed by selecting your title from http://www.
+packtpub.com/support.
+https://www.iteblog.com

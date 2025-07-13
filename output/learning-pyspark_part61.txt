@@ -1,0 +1,32 @@
+DataFrames
+[ 38 ]
+For more information, please refer to the blog post Introducing
+DataFrames in Apache Spark for Large Scale Data Science at http://bit.
+ly/2blDBI1, as well as Reynold Xin's Spark Summit 2015 presentation,
+From DataFrames to Tungsten: A Peek into Spark's Future at http://bit.
+ly/2bQN92T.
+Creating DataFrames
+Typically, you will create DataFrames by importing data using SparkSession
+(or calling spark in the PySpark shell).
+In Spark 1.x versions, you typically had to use sqlContext.
+In future chapters, we will discuss how to import data into your local file system,
+Hadoop Distributed File System (HDFS), or other cloud storage systems (for
+example, S3 or WASB). For this chapter, we will focus on generating your own
+DataFrame data directly within Spark or utilizing the data sources already available
+within Databricks Community Edition.
+For instructions on how to sign up for the Community Edition
+of Databricks, see the bonus chapter, Free Spark Cloud Offering.
+First, instead of accessing the file system, we will create a DataFrame by generating
+the data. In this case, we'll first create the stringJSONRDD RDD and then convert it
+into a DataFrame. This code snippet creates an RDD comprised of swimmers (their
+ID, name, age, and eye color) in JSON format.
+Generating our own JSON data
+Below, we will generate initially generate the stringJSONRDD RDD:
+stringJSONRDD = sc.parallelize(("""
+{ "id": "123",
+"name": "Katie",
+"age": 19,
+"eyeColor": "brown"
+}""",
+"""{
+"id": "234",

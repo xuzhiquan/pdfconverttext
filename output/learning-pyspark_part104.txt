@@ -1,0 +1,38 @@
+Chapter 5
+[ 81 ]
+Note that here (for brevity), we only present a handful of features.
+You should always check our GitHub account for this book for the
+latest version of the code: https://github.com/drabastomek/
+learningPySpark.
+Here's the code:
+import pyspark.sql.types as typ
+labels = [
+('INFANT_ALIVE_AT_REPORT', typ.StringType()),
+('BIRTH_YEAR', typ.IntegerType()),
+('BIRTH_MONTH', typ.IntegerType()),
+('BIRTH_PLACE', typ.StringType()),
+('MOTHER_AGE_YEARS', typ.IntegerType()),
+('MOTHER_RACE_6CODE', typ.StringType()),
+('MOTHER_EDUCATION', typ.StringType()),
+('FATHER_COMBINED_AGE', typ.IntegerType()),
+('FATHER_EDUCATION', typ.StringType()),
+('MONTH_PRECARE_RECODE', typ.StringType()),
+...
+('INFANT_BREASTFED', typ.StringType())
+]
+schema = typ.StructType([
+typ.StructField(e[0], e[1], False) for e in labels
+])
+Next, we load the data. The .read.csv(...) method can read either uncompressed
+or (as in our case) GZipped comma-separated values. The header parameter set
+to True indicates that the first row contains the header, and we use the schema to
+specify the correct data types:
+births = spark.read.csv('births_train.csv.gz',
+header=True,
+schema=schema)
+There are plenty of features in our dataset that are strings. These are mostly
+categorical variables that we need to somehow convert to a numeric form.
+You can glimpse over the original file schema specification here:
+ftp://ftp.cdc.gov/pub/Health_Statistics/NCHS/Dataset_
+Documentation/DVS/natality/UserGuide2015.pdf.
+https://www.iteblog.com

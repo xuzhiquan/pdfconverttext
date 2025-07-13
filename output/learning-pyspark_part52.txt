@@ -1,0 +1,31 @@
+Chapter 2
+[ 29 ]
+The preceding code prints out 4 as the new number of partitions.
+The .glom() method, in contrast to .collect(), produces a list where each element
+is another list of all elements of the dataset present in a specified partition; the main
+list returned has as many elements as the number of partitions.
+Actions
+Actions, in contrast to transformations, execute the scheduled task on the
+dataset; once you have finished transforming your data you can execute your
+transformations. This might contain no transformations (for example, .take(n) will
+just return n records from an RDD even if you did not do any transformations to it)
+or execute the whole chain of transformations.
+The .take(...) method
+This is most arguably the most useful (and used, such as the .map(...) method).
+The method is preferred to .collect(...) as it only returns the n top rows from a
+single data partition in contrast to .collect(...), which returns the whole RDD.
+This is especially important when you deal with large datasets:
+data_first = data_from_file_conv.take(1)
+If you want somewhat randomized records you can use .takeSample(...)
+instead, which takes three arguments: First whether the sampling should be with
+replacement, the second specifies the number of records to return, and the third
+is a seed to the pseudo-random numbers generator:
+data_take_sampled = data_from_file_conv.takeSample(False, 1, 667)
+The .collect(...) method
+This method returns all the elements of the RDD to the driver. As we have just
+provided a caution about it, we will not repeat ourselves here.
+The .reduce(...) method
+The .reduce(...) method reduces the elements of an RDD using a specified method.
+You can use it to sum the elements of your RDD:
+rdd1.map(lambda row: row[1]).reduce(lambda x, y: x + y)
+This will produce the sum of 15.

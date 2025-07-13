@@ -1,0 +1,33 @@
+Understanding Spark
+[ 8 ]
+For more information, please refer to
+Project Tungsten: Bringing Apache Spark Closer to Bare Metal (https://
+databricks.com/blog/2015/04/28/project-tungsten-
+bringing-spark-closer-to-bare-metal.html)
+Deep Dive into Project Tungsten: Bringing Spark Closer to Bare Metal [SSE
+2015 Video and Slides] (https://spark-summit.org/2015/events/
+deep-dive-into-project-tungsten-bringing-spark-closer-
+to-bare-metal/) and
+Apache Spark as a Compiler: Joining a Billion Rows per Second on a Laptop
+(https://databricks.com/blog/2016/05/23/apache-spark-
+as-a-compiler-joining-a-billion-rows-per-second-on-a-
+laptop.html)
+Spark 2.0 architecture
+The introduction of Apache Spark 2.0 is the recent major release of the Apache
+Spark project based on the key learnings from the last two years of development
+of the platform:
+Source: Apache Spark 2.0: Faster, Easier, and Smarter http://bit.ly/2ap7qd5
+The three overriding themes of the Apache Spark 2.0 release surround performance
+enhancements (via Tungsten Phase 2), the introduction of structured streaming, and
+unifying Datasets and DataFrames. We will describe the Datasets as they are part of
+Spark 2.0 even though they are currently only available in Scala and Java.
+Refer to the following presentations by key Spark committers for more
+information about Apache Spark 2.0:
+Reynold Xin's Apache Spark 2.0: Faster, Easier, and Smarter webinar
+http://bit.ly/2ap7qd5
+Michael Armbrust's Structuring Spark: DataFrames, Datasets, and Streaming
+http://bit.ly/2ap7qd5
+Tathagata Das' A Deep Dive into Spark Streaming http://bit.
+ly/2aHt1w0
+Joseph Bradley's Apache Spark MLlib 2.0 Preview: Data Science and Production
+http://bit.ly/2aHrOVN

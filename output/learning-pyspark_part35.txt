@@ -1,0 +1,31 @@
+Understanding Spark
+[ 12 ]
+The following diagram is the updated Catalyst engine to denote the inclusion
+of Datasets. As you see at the right of the diagram (right of the Cost Model),
+Code Generation is used against the selected physical plans to generate the
+underlying RDDs:
+Source: Structuring Spark: DataFrames, Datasets, and Streaming http://bit.ly/2cJ508x
+As part of Tungsten Phase 2, there is the push into whole-stage code generation. That
+is, the Spark engine will now generate the byte code at compile time for the entire
+Spark stage instead of just for specific jobs or tasks. The primary facets surrounding
+these improvements include:
+•
+No virtual function dispatches: This reduces multiple CPU calls that can
+have a profound impact on performance when dispatching billions of times
+•
+Intermediate data in memory vs CPU registers: Tungsten Phase 2 places
+intermediate data into CPU registers. This is an order of magnitude reduction
+in the number of cycles to obtain data from the CPU registers instead of
+from memory
+•
+Loop unrolling and SIMD: Optimize Apache Spark's execution engine to
+take advantage of modern compilers and CPUs' ability to efficiently compile
+and execute simple for loops (as opposed to complex function call graphs)
+For a more in-depth review of Project Tungsten, please refer to:
+•
+Apache Spark Key Terms, Explained https://databricks.com/
+blog/2016/06/22/apache-spark-key-terms-explained.html
+•
+Apache Spark as a Compiler: Joining a Billion Rows per Second on a Laptop
+https://databricks.com/blog/2016/05/23/apache-spark-as-a-
+compiler-joining-a-billion-rows-per-second-on-a-laptop.html

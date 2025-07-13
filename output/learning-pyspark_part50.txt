@@ -1,0 +1,28 @@
+Chapter 2
+[ 27 ]
+First, we extract only the column that contains the gender. Next, we use the
+.distinct() method to select only the distinct values in the list. Lastly, we use the
+.collect() method to return the print of the values on the screen.
+Note that this is an expensive method and should be used sparingly and
+only when necessary as it shuffles the data around.
+The .sample(...) transformation
+The .sample(...) method returns a randomized sample from the dataset. The first
+parameter specifies whether the sampling should be with a replacement, the second
+parameter defines the fraction of the data to return, and the third is seed to the
+pseudo-random numbers generator:
+fraction = 0.1
+data_sample = data_from_file_conv.sample(False, fraction, 666)
+In this example, we selected a randomized sample of 10% from the original dataset.
+To confirm this, let's print the sizes of the datasets:
+print('Original dataset: {0}, sample: {1}'\
+.format(data_from_file_conv.count(), data_sample.count()))
+The preceding command produces the following output:
+We use the .count() action that counts all the records in the corresponding RDDs.
+The .leftOuterJoin(...) transformation
+.leftOuterJoin(...), just like in the SQL world, joins two RDDs based on the
+values found in both datasets, and returns records from the left RDD with records
+from the right one appended in places where the two RDDs match:
+rdd1 = sc.parallelize([('a', 1), ('b', 4), ('c',10)])
+rdd2 = sc.parallelize([('a', 4), ('a', 1), ('b', '6'), ('d', 15)])
+rdd3 = rdd1.leftOuterJoin(rdd2)
+Running .collect(...) on the rdd3 will produce the following:

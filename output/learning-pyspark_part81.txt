@@ -1,0 +1,25 @@
+Prepare Data for Modeling
+[ 58 ]
+We can still use the .dropDuplicates(...), but will add the subset parameter that
+specifies only the columns other than the id column:
+df = df.dropDuplicates(subset=[
+c for c in df.columns if c != 'id'
+])
+The subset parameter instructs the .dropDuplicates(...) method to look
+for duplicated rows using only the columns specified via the subset parameter; in
+the preceding example, we will drop the duplicated records with the same weight,
+height, age, and gender but not id. Running the df.show(), we get the following
+cleaner dataset as we dropped the row with id = 1 since it was identical to the
+record with id = 4:
+Now that we know there are no full rows duplicated, or any identical rows differing
+only by ID, let's check if there are any duplicated IDs. To calculate the total and
+distinct number of IDs in one step, we can use the .agg(...) method:
+import pyspark.sql.functions as fn
+df.agg(
+fn.count('id').alias('count'),
+fn.countDistinct('id').alias('distinct')
+).show()
+Here's the output of the preceding code:
+In the previous example, we first import all the functions from the pyspark.sql
+module.
+https://www.iteblog.com

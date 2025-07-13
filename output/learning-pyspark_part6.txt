@@ -1,0 +1,32 @@
+Foreword
+Thank you for choosing this book to start your PySpark adventures, I hope you
+are as excited as I am. When Denny Lee first told me about this new book I was
+delighted-one of the most important things that makes Apache Spark such a
+wonderful platform, is supporting both the Java/Scala/JVM worlds and Python
+(and more recently R) worlds. Many of the previous books for Spark have been
+focused on either all of the core languages, or primarily focused on JVM languages,
+so it's great to see PySpark get its chance to shine with a dedicated book from such
+experienced Spark educators. By supporting both of these different worlds, we are
+able to more effectively work together as Data Scientists and Data Engineers, while
+stealing the best ideas from each other's communities.
+It has been a privilege to have the opportunity to review early versions of this
+book, which has only increased my excitement for the project. I've had the privilege
+of being at some of the same conferences and meetups and watching the authors
+introduce new concepts in the world of Spark to a variety of audiences (from first
+timers to old hands), and they've done a great job distilling their experience for
+this book. The experience of the authors shines through with everything from their
+explanations to the topics covered. Beyond simply introducing PySpark they have
+also taken the time to look at up and coming packages from the community, such as
+GraphFrames and TensorFrames.
+I think the community is one of those often-overlooked components when deciding
+what tools to use, and Python has a great community and I'm looking forward to
+you joining the Python Spark community. So, enjoy your adventure; I know you are
+in good hands with Denny Lee and Tomek Drabas.  I truly believe that by having
+a diverse community of Spark users we will be able to make better tools useful for
+everyone, so I hope to see you around at one of the conferences, meetups, or mailing
+lists soon :)
+Holden Karau
+P.S.
+I owe Denny a beer; if you want to buy him a Bud Light lime (or lime-a-rita) for me
+I'd be much obliged (although he might not be quite as amused as I am).
+https://www.iteblog.com

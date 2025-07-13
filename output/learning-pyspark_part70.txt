@@ -1,0 +1,18 @@
+Chapter 3
+[ 47 ]
+If we only want to get back the name of the swimmers who have an eye color
+that begins with the letter b, we can use a SQL-like syntax, like, as shown in
+the following code:
+# Get the name, eyeColor where eyeColor like 'b%'
+swimmers.select("name", "eyeColor").filter("eyeColor like 'b%'").
+show()
+The output is as follows:
+Querying with SQL
+Let's run the same queries, except this time, we will do so using SQL queries against
+the same DataFrame. Recall that this DataFrame is accessible because we executed
+the .createOrReplaceTempView method for swimmers.
+Number of rows
+The following is the code snippet to get the number of rows within your DataFrame
+using SQL:
+spark.sql("select count(1) from swimmers").show()
+The output is as follows:

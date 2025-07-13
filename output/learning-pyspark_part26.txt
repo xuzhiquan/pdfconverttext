@@ -1,0 +1,15 @@
+Chapter 1
+[ 3 ]
+For more information, please refer to: Apache Spark is the Smartphone of
+Big Data at http://bit.ly/1QsgaNj
+Spark Jobs and APIs
+In this section, we will provide a short overview of the Apache Spark Jobs and APIs.
+This provides the necessary foundation for the subsequent section on Spark 2.0
+architecture.
+Execution process
+Any Spark application spins off a single driver process (that can contain multiple
+jobs) on the master node that then directs executor processes (that contain multiple
+tasks) distributed to a number of worker nodes as noted in the following diagram:
+The driver process determines the number and the composition of the task processes
+directed to the executor nodes based on the graph generated for the given job. Note,
+that any worker node can execute tasks from a number of different jobs.

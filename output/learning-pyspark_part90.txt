@@ -1,0 +1,23 @@
+Chapter 4
+[ 67 ]
+In this section, we will use the dataset we downloaded from http://
+packages.revolutionanalytics.com/datasets/ccFraud.csv.
+We did not alter the dataset itself, but it was GZipped and uploaded
+to http://tomdrabas.com/data/LearningPySpark/ccFraud.
+csv.gz. Please download the file first and save it in the same folder that
+contains your notebook for this chapter.
+The head of the dataset looks as follows:
+Thus, any serious data scientist or data modeler will become acquainted with the
+dataset before starting any modeling. As a first thing, we normally start with some
+descriptive statistics to get a feeling for what we are dealing with.
+Descriptive statistics
+Descriptive statistics, in the simplest sense, will tell you the basic information about
+your dataset: how many non-missing observations there are in your dataset, the
+mean and the standard deviation for the column, as well as the min and max values.
+However, first things first—let's load our data and convert it to a Spark DataFrame:
+import pyspark.sql.types as typ
+First, we load the only module we will need. The pyspark.sql.types exposes all
+the data types we can use, such as IntegerType() or FloatType().
+For a full list of available types check http://spark.apache.
+org/docs/latest/api/python/pyspark.sql.html#module-
+pyspark.sql.types.

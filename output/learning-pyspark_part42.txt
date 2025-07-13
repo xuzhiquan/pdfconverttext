@@ -1,0 +1,33 @@
+Chapter 2
+[ 19 ]
+Or you can reference a file (or files) located either locally or somewhere externally:
+data_from_file = sc.\
+textFile(
+'/Users/drabast/Documents/PySpark_Data/VS14MORT.txt.gz',
+4)
+We downloaded the Mortality dataset VS14MORT.txt file from (accessed
+on July 31, 2016) ftp://ftp.cdc.gov/pub/Health_Statistics/
+NCHS/Datasets/DVS/mortality/mort2014us.zip; the record
+schema is explained in this document http://www.cdc.gov/nchs/
+data/dvs/Record_Layout_2014.pdf. We selected this dataset on
+purpose: The encoding of the records will help us to explain how to use
+UDFs to transform your data later in this chapter. For your convenience,
+we also host the file here: http://tomdrabas.com/data/VS14MORT.
+txt.gz
+The last parameter in sc.textFile(..., n) specifies the number of partitions the
+dataset is divided into.
+A rule of thumb would be to break your dataset into two-four partitions
+for each in your cluster.
+Spark can read from a multitude of filesystems: Local ones such as NTFS, FAT, or
+Mac OS Extended (HFS+), or distributed filesystems such as HDFS, S3, Cassandra,
+among many others.
+Be wary where your datasets are read from or saved to: The path cannot
+contain special characters []. Note, that this also applies to paths stored
+on Amazon S3 or Microsoft Azure Data Storage.
+Multiple data formats are supported: Text, parquet, JSON, Hive tables, and data
+from relational databases can be read using a JDBC driver. Note that Spark
+can automatically work with compressed datasets (like the Gzipped one in our
+preceding example).
+Depending on how the data is read, the object holding it will be represented slightly
+differently. The data read from a file is represented as MapPartitionsRDD instead
+of ParallelCollectionRDD when we .paralellize(...) a collection.

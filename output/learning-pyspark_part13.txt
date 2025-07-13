@@ -1,0 +1,41 @@
+Table of Contents
+[ ii ]
+The .distinct(...) transformation
+The .sample(...) transformation
+The .leftOuterJoin(...) transformation
+The .repartition(...) transformation
+Actions
+The .take(...) method
+The .collect(...) method
+The .reduce(...) method
+The .count(...) method
+The .saveAsTextFile(...) method
+The .foreach(...) method
+Summary
+Chapter 3: DataFrames
+Python to RDD communications
+Catalyst Optimizer refresh
+Speeding up PySpark with DataFrames
+Creating DataFrames
+Generating our own JSON data
+Creating a DataFrame
+Creating a temporary table
+Simple DataFrame queries
+DataFrame API query
+SQL query
+Interoperating with RDDs
+Inferring the schema using reflection
+Programmatically specifying the schema
+Querying with the DataFrame API
+Number of rows
+Running filter statements
+Querying with SQL
+Number of rows
+Running filter statements using the where Clauses
+DataFrame scenario – on-time flight performance
+Preparing the source datasets
+Joining flight performance and airports
+Visualizing our flight-performance data
+Spark Dataset API
+Summary
+https://www.iteblog.com

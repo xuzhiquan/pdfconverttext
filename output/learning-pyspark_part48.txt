@@ -1,0 +1,21 @@
+Chapter 2
+[ 25 ]
+Running data_2014.take(10) will yield the following result:
+If you are not familiar with lambda expressions, please refer to this
+resource: https://pythonconquerstheuniverse.wordpress.
+com/2011/08/29/lambda_tutorial/.
+You can of course bring more columns over, but you would have to package them
+into a tuple, dict, or a list. Let's also include the 17th element of the row along so
+that we can confirm our .map(...) works as intended:
+data_2014_2 = data_from_file_conv.map(
+lambda row: (row[16], int(row[16]):)
+data_2014_2.take(5)
+The preceding code will produce the following result:
+The .filter(...) transformation
+Another most often used transformation is the .filter(...) method, which allows
+you to select elements from your dataset that fit specified criteria. As an example,
+from the data_from_file_conv dataset, let's count how many people died in an
+accident in 2014:
+data_filtered = data_from_file_conv.filter(
+lambda row: row[16] == '2014' and row[21] == '0')
+data_filtered.count()

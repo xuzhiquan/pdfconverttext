@@ -1,0 +1,33 @@
+Prepare Data for Modeling
+[ 72 ]
+import bokeh.charts as chrt
+from bokeh.io import output_notebook
+output_notebook()
+The %matplotlib inline and the output_notebook() commands will make every
+chart generated with matplotlib or Bokeh, respectively, appear within the notebook
+and not as a separate window.
+Histograms
+Histograms are by far the easiest way to visually gauge the distribution of your
+features. There are three ways you can generate histograms in PySpark (or a Jupyter
+notebook):
+•
+Aggregate the data in workers and return an aggregated list of bins and
+counts in each bin of the histogram to the driver
+•
+Return all the data points to the driver and allow the plotting libraries'
+methods to do the job for you
+•
+Sample your data and then return them to the driver for plotting.
+If the number of rows in your dataset is counted in billions, then the second option
+might not be attainable. Thus, you need to aggregate the data first:
+hists = fraud_df.select('balance').rdd.flatMap(
+lambda row: row
+).histogram(20)
+To plot the histogram, you can simply call matplotlib, as shown in the following
+code:
+data = {
+'bins': hists[0][:-1],
+'freq': hists[1]
+}
+plt.bar(data['bins'], data['freq'], width=2000)
+plt.title('Histogram of \'balance\'')

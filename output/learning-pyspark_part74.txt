@@ -1,0 +1,23 @@
+Chapter 3
+[ 51 ]
+group by a.City, f.origin
+order by sum(f.delay) desc"""
+).show()
+In our scenario, we are querying the total delays by city and origin code for the state
+of Washington. This will require joining the flight performance data with the airports
+data by International Air Transport Association (IATA) code. The output of the
+query is as follows:
+Using notebooks (such as Databricks, iPython, Jupyter, and Apache Zeppelin), you
+can more easily execute and visualize your queries. In the following examples, we
+will be using the Databricks notebook. Within our Python notebook, we can use the
+%sql function to execute SQL statements within that notebook cell:
+%sql
+-- Query Sum of Flight Delays by City and Origin Code (for Washington
+State)
+select a.City, f.origin, sum(f.delay) as Delays
+from FlightPerformance f
+join airports a
+on a.IATA = f.origin
+where a.State = 'WA'
+group by a.City, f.origin
+order by sum(f.delay) desc

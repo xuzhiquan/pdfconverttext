@@ -1,0 +1,35 @@
+Prepare Data for Modeling
+[ 56 ]
+Checking for duplicates, missing
+observations, and outliers
+Until you have fully tested the data and proven it worthy of your time, you should
+neither trust it nor use it. In this section, we will show you how to deal with
+duplicates, missing observations, and outliers.
+Duplicates
+Duplicates are observations that appear as distinct rows in your dataset, but which,
+upon closer inspection, look the same. That is, if you looked at them side by side, all
+the features in these two (or more) rows would have exactly the same values.
+On the other hand, if your data has some form of an ID to distinguish between
+records (or associate them with certain users, for example), then what might initially
+appear as a duplicate may not be; sometimes systems fail and produce erroneous
+IDs. In such a situation, you need to either check whether the same ID is a real
+duplicate, or you need to come up with a new ID system.
+Consider the following example:
+df = spark.createDataFrame([
+(1, 144.5, 5.9, 33, 'M'),
+(2, 167.2, 5.4, 45, 'M'),
+(3, 124.1, 5.2, 23, 'F'),
+(4, 144.5, 5.9, 33, 'M'),
+(5, 133.2, 5.7, 54, 'F'),
+(3, 124.1, 5.2, 23, 'F'),
+(5, 129.2, 5.3, 42, 'M'),
+], ['id', 'weight', 'height', 'age', 'gender'])
+As you can see, we have several issues here:
+•
+We have two rows with IDs equal to 3 and they are exactly the same
+•
+Rows with IDs 1 and 4 are the same — the only thing that's different is their
+IDs, so we can safely assume that they are the same person
+•
+We have two rows with IDs equal to 5, but that seems to be a recording issue,
+as they do not seem to be the same person

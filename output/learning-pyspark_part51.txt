@@ -1,0 +1,29 @@
+Resilient Distributed Datasets
+[ 28 ]
+This is another expensive method and should be used sparingly and only
+when necessary as it shuffles the data around causing a performance hit.
+What you can see here are all the elements from RDD rdd1 and their corresponding
+values from RDD rdd2. As you can see, the value 'a' shows up two times in rdd3
+and 'a' appears twice in the RDD rdd2. The value b from the rdd1 shows up only
+once and is joined with the value '6' from the rdd2. There are two things missing:
+Value 'c' from rdd1 does not have a corresponding key in the rdd2 so the value in
+the returned tuple shows as None, and, since we were performing a left outer join,
+the value 'd' from the rdd2 disappeared as expected.
+If we used the .join(...) method instead we would have got only the values
+for 'a' and 'b' as these two values intersect between these two RDDs. Run the
+following code:
+rdd4 = rdd1.join(rdd2)
+rdd4.collect()
+It will result in the following output:
+Another useful method is .intersection(...), which returns the records that are
+equal in both RDDs. Execute the following code:
+rdd5 = rdd1.intersection(rdd2)
+rdd5.collect()
+The output is as follows:
+The .repartition(...) transformation
+Repartitioning the dataset changes the number of partitions that the dataset is
+divided into. This functionality should be used sparingly and only when really
+necessary as it shuffles the data around, which in effect results in a significant
+hit in terms of performance:
+rdd1 = rdd1.repartition(4)
+len(rdd1.glom().collect())

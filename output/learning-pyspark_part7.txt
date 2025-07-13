@@ -1,0 +1,27 @@
+About the Authors
+Tomasz Drabas is a Data Scientist working for Microsoft and currently residing in
+the Seattle area. He has over 13 years of experience in data analytics and data science
+in numerous fields: advanced technology, airlines, telecommunications, finance,
+and consulting he gained while working on three continents: Europe, Australia,
+and North America. While in Australia, Tomasz has been working on his PhD in
+Operations Research with a focus on choice modeling and revenue management
+applications in the airline industry.
+At Microsoft, Tomasz works with big data on a daily basis, solving machine learning
+problems such as anomaly detection, churn prediction, and pattern recognition
+using Spark.
+Tomasz has also authored the Practical Data Analysis Cookbook published by
+Packt Publishing in 2016.
+I would like to thank my family: Rachel, Skye, and Albert—you are
+the love of my life and I cherish every day I spend with you! Thank
+you for always standing by me and for encouraging me to push my
+career goals further and further. Also, to my family and my in-laws
+for putting up with me (in general).
+There are many more people that have influenced me over the
+years that I would have to write another book to thank them all.
+You know who you are and I want to thank you from the
+bottom of my heart!
+However, I would not have gotten through my PhD if it was not for
+Czesia Wieruszewska; Czesiu - dziękuję za Twoją pomoc bez której
+nie rozpocząłbym mojej podróży po Antypodach. Along with Krzys
+Krzysztoszek, you guys have always believed in me! Thank you!
+https://www.iteblog.com

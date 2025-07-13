@@ -1,0 +1,29 @@
+Chapter 4
+[ 71 ]
+Calculating correlations in PySpark is very easy once your data is in a DataFrame
+form. The only difficulties are that the .corr(...) method supports the Pearson
+correlation coefficient at the moment, and it can only calculate pairwise correlations,
+such as the following:
+fraud_df.corr('balance', 'numTrans')
+In order to create a correlations matrix, you can use the following script:
+n_numerical = len(numerical)
+corr = []
+for i in range(0, n_numerical):
+temp = [None] * i
+for j in range(i, n_numerical):
+temp.append(fraud_df.corr(numerical[i], numerical[j]))
+corr.append(temp)
+The preceding code will create the following output:
+As you can see, the correlations between the numerical features in the credit card
+fraud dataset are pretty much non-existent. Thus, all these features can be used in
+our models, should they turn out to be statistically sound in explaining our target.
+Having checked the correlations, we can now move on to visually inspecting
+our data.
+Visualization
+There are multiple visualization packages, but in this section we will be using
+matplotlib and Bokeh exclusively to give you the best tools for your needs.
+Both of the packages come preinstalled with Anaconda. First, let's load the modules
+and set them up:
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')

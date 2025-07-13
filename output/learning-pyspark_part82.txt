@@ -1,0 +1,22 @@
+Chapter 4
+[ 59 ]
+This gives us access to a vast array of various functions, too many to
+list here. However, we strongly encourage you to study the PySpark's
+documentation at http://spark.apache.org/docs/2.0.0/api/
+python/pyspark.sql.html#module-pyspark.sql.functions.
+Next, we use the .count(...) and .countDistinct(...) to, respectively,
+calculate the number of rows and the number of distinct ids in our DataFrame. The
+.alias(...) method allows us to specify a friendly name to the returned column.
+As you can see, we have five rows in total, but only four distinct IDs. Since we have
+already dropped all the duplicates, we can safely assume that this might just be a
+fluke in our ID data, so we will give each row a unique ID:
+df.withColumn('new_id', fn.monotonically_increasing_id()).show()
+The preceding code snippet produced the following output:
+The .monotonicallymonotonically_increasing_id() method gives each record
+a unique and increasing ID. According to the documentation, as long as your data is
+put into less than roughly 1 billion partitions with less than 8 billions records in each,
+the ID is guaranteed to be unique.
+A word of caution: in earlier versions of Spark the
+.monotonicallymonotonically_increasing_id() method
+would not necessarily return the same IDs across multiple evaluations of
+the same DataFrame. This, however, has been fixed in Spark 2.0.

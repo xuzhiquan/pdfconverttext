@@ -1,0 +1,31 @@
+Chapter 3
+[ 45 ]
+First, we will encode the schema as a string, per the [schema] variable below. Then
+we will define the schema using StructType and StructField:
+# Specify schema
+schema = StructType([
+StructField("id", LongType(), True),
+StructField("name", StringType(), True),
+StructField("age", LongType(), True),
+StructField("eyeColor", StringType(), True)
+])
+Note, the StructField class is broken down in terms of:
+•
+name: The name of this field
+•
+dataType: The data type of this field
+•
+nullable: Indicates whether values of this field can be null
+Finally, we will apply the schema (schema) we created to the stringCSVRDD RDD
+(that is, the generated.csv data) and create a temporary view so we can query it
+using SQL:
+# Apply the schema to the RDD and Create DataFrame
+swimmers = spark.createDataFrame(stringCSVRDD, schema)
+# Creates a temporary view using the DataFrame
+swimmers.createOrReplaceTempView("swimmers")
+With this example, we have finer-grain control over the schema and can specify that
+id is a long (as opposed to a string in the previous section):
+swimmers.printSchema()
+This gives the following output:
+In many cases, the schema can be inferred (as per the previous section)
+and you do not need to specify the schema, as in this preceding example.

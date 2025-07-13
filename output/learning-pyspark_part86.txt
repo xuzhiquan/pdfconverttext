@@ -1,0 +1,25 @@
+Chapter 4
+[ 63 ]
+On the other hand, if you wanted to impute the observations, you can use the
+.fillna(...) method. This method accepts a single integer (long is also accepted),
+float, or string; all missing values in the whole dataset will then be filled in with
+that value. You can also pass a dictionary of a form {'<colName>': <value_to_
+impute>}. This has the same limitation, in that, as the <value_to_impute>, you can
+only pass an integer, float, or string.
+If you want to impute a mean, median, or other calculated value, you need to first
+calculate the value, create a dictionary with such values, and then pass it to the
+.fillna(...) method.
+Here's how we do it:
+means = df_miss_no_income.agg(
+*[fn.mean(c).alias(c)
+for c in df_miss_no_income.columns if c != 'gender']
+).toPandas().to_dict('records')[0]
+means['gender'] = 'missing'
+df_miss_no_income.fillna(means).show()
+The preceding code will produce the following output:
+We omit the gender column as one cannot calculate a mean of a categorical variable,
+obviously.
+We use a double conversion here. Taking the output of the .agg(...) method
+(a PySpark DataFrame), we first convert it into a pandas' DataFrame and then
+once more to a dictionary.
+https://www.iteblog.com

@@ -1,0 +1,24 @@
+Chapter 3
+[ 43 ]
+We are using the .collect() method, which returns all the records as a list of
+Row objects. Note that you can use either the collect() or show() method for
+both DataFrames and SQL queries. Just make sure that if you use .collect(),
+this is for a small DataFrame, since it will return all of the rows in the DataFrame
+and move them back from the executors to the driver. You can instead use
+take(<n>) or show(<n>), which allow you to limit the number of rows returned
+by specifying <n>:
+Note that, if you are using Databricks, you can use the %sql command
+and run your SQL statement directly within a notebook cell, as noted.
+Interoperating with RDDs
+There are two different methods for converting existing RDDs to DataFrames (or
+Datasets[T]): inferring the schema using reflection, or programmatically specifying
+the schema. The former allows you to write more concise code (when your Spark
+application already knows the schema), while the latter allows you to construct
+DataFrames when the columns and their data types are only revealed at run time.
+Note, reflection is in reference to schema reflection as opposed to Python reflection.
+Inferring the schema using reflection
+In the process of building the DataFrame and running the queries, we skipped over
+the fact that the schema for this DataFrame was automatically defined. Initially, row
+objects are constructed by passing a list of key/value pairs as **kwargs to the row
+class. Then, Spark SQL converts this RDD of row objects into a DataFrame, where
+the keys are the columns and the data types are inferred by sampling the data.

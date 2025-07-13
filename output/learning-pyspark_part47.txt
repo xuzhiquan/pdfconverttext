@@ -1,0 +1,31 @@
+Resilient Distributed Datasets
+[ 24 ]
+This set of variables and methods is inherently static within the executors' context,
+that is, each executor gets a copy of the variables and methods from the driver. If,
+when running the task, the executor alters these variables or overwrites the methods,
+it does so without affecting either other executors' copies or the variables and
+methods of the driver. This might lead to some unexpected behavior and runtime
+bugs that can sometimes be really hard to track down.
+Check out this discussion in PySpark's documentation for a more
+hands-on example: http://spark.apache.org/docs/latest/
+programming-guide.html#local-vs-cluster-modes.
+Transformations
+Transformations shape your dataset. These include mapping, filtering, joining, and
+transcoding the values in your dataset. In this section, we will showcase some of the
+transformations available on RDDs.
+Due to space constraints we include only the most often used
+transformations and actions here. For a full set of methods available
+we suggest you check PySpark's documentation on RDDs http://
+spark.apache.org/docs/latest/api/python/pyspark.
+html#pyspark.RDD.
+Since RDDs are schema-less, in this section we assume you know the schema of the
+produced dataset. If you cannot remember the positions of information in the parsed
+dataset we suggest you refer to the definition of the extractInformation(...)
+method on GitHub, code for Chapter 03.
+The .map(...) transformation
+It can be argued that you will use the .map(...) transformation most often. The
+method is applied to each element of the RDD: In the case of the data_from_file_
+conv dataset, you can think of this as a transformation of each row.
+In this example, we will create a new dataset that will convert year of death into a
+numeric value:
+data_2014 = data_from_file_conv.map(lambda row: int(row[16]))

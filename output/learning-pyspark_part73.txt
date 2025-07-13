@@ -1,0 +1,38 @@
+DataFrames
+[ 50 ]
+Preparing the source datasets
+We will first process the source airports and flight performance datasets by
+specifying their file path location and importing them using SparkSession:
+# Set File Paths
+flightPerfFilePath =
+"/databricks-datasets/flights/departuredelays.csv"
+airportsFilePath =
+"/databricks-datasets/flights/airport-codes-na.txt"
+# Obtain Airports dataset
+airports = spark.read.csv(airportsFilePath, header='true',
+inferSchema='true', sep='\t')
+airports.createOrReplaceTempView("airports")
+# Obtain Departure Delays dataset
+flightPerf = spark.read.csv(flightPerfFilePath, header='true')
+flightPerf.createOrReplaceTempView("FlightPerformance")
+# Cache the Departure Delays dataset
+flightPerf.cache()
+Note that we're importing the data using the CSV reader (com.databricks.spark.
+csv), which works for any specified delimiter (note that the airports data is tab-
+delimited, while the flight performance data is comma-delimited). Finally, we cache
+the flight dataset so subsequent queries will be faster.
+Joining flight performance and airports
+One of the more common tasks with DataFrames/SQL is to join two different
+datasets; it is often one of the more demanding operations (from a performance
+perspective). With DataFrames, a lot of the performance optimizations for these
+joins are included by default:
+# Query Sum of Flight Delays by City and Origin Code
+# (for Washington State)
+spark.sql("""
+select a.City,
+f.origin,
+sum(f.delay) as Delays
+from FlightPerformance f
+join airports a
+on a.IATA = f.origin
+where a.State = 'WA'

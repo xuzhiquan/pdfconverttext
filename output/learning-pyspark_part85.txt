@@ -1,0 +1,26 @@
+Prepare Data for Modeling
+[ 62 ]
+This generates the following output:
+The * argument to the .count(...) method (in place of a column
+name) instructs the method to count all rows. On the other hand, the *
+preceding the list declaration instructs the .agg(...) method to treat
+the list as a set of separate parameters passed to the function.
+So, we have 14% of missing observations in the weight and gender columns, twice
+as much in the height column, and almost 72% of missing observations in the
+income column. Now we know what to do.
+First, we will drop the 'income' feature, as most of its values are missing.
+df_miss_no_income = df_miss.select([
+c for c in df_miss.columns if c != 'income'
+])
+We now see that we do not need to drop the row with ID 3 as the coverage in the
+'weight' and 'age' columns has enough observations (in our simplified example)
+to calculate the mean and impute it in the place of the missing values.
+However, if you decide to drop the observations instead, you can use the
+.dropna(...) method, as shown here. Here, we will also use the thresh parameter,
+which allows us to specify a threshold on the number of missing observations per
+row that would qualify the row to be dropped. This is useful if you have a dataset
+with tens or hundreds of features and you only want to drop those rows that exceed
+a certain threshold of missing values:
+df_miss_no_income.dropna(thresh=3).show()
+The preceding code produces the following output:
+https://www.iteblog.com

@@ -1,0 +1,43 @@
+Table of Contents
+[ iii ]
+Chapter 4: Prepare Data for Modeling
+Checking for duplicates, missing observations, and outliers
+Duplicates
+Missing observations
+Outliers
+Getting familiar with your data
+Descriptive statistics
+Correlations
+Visualization
+Histograms
+Interactions between features
+Summary
+Chapter 5: Introducing MLlib
+Overview of the package
+Loading and transforming the data
+Getting to know your data
+Descriptive statistics
+Correlations
+Statistical testing
+Creating the final dataset
+Creating an RDD of LabeledPoints
+Splitting into training and testing
+Predicting infant survival
+Logistic regression in MLlib
+Selecting only the most predictable features
+Random forest in MLlib
+Summary
+Chapter 6: Introducing the ML Package
+Overview of the package
+Transformer
+Estimators
+Classification
+Regression
+Clustering
+Pipeline
+Predicting the chances of infant survival with ML
+Loading the data
+Creating transformers
+Creating an estimator
+Creating a pipeline
+https://www.iteblog.com

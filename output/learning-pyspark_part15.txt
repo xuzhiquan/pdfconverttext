@@ -1,0 +1,41 @@
+Table of Contents
+[ iv ]
+Fitting the model
+Evaluating the performance of the model
+Saving the model
+Parameter hyper-tuning
+Grid search
+Train-validation splitting
+Other features of PySpark ML in action
+Feature extraction
+NLP - related feature extractors
+Discretizing continuous variables
+Standardizing continuous variables
+Classification
+Clustering
+Finding clusters in the births dataset
+Topic mining
+Regression
+Summary
+Chapter 7: GraphFrames
+Introducing GraphFrames
+Installing GraphFrames
+Creating a library
+Preparing your flights dataset
+Building the graph
+Executing simple queries
+Determining the number of airports and trips
+Determining the longest delay in this dataset
+Determining the number of delayed versus on-time/early flights
+What flights departing Seattle are most likely to have significant
+delays?
+What states tend to have significant delays departing from Seattle?
+Understanding vertex degrees
+Determining the top transfer airports
+Understanding motifs
+Determining airport ranking using PageRank
+Determining the most popular non-stop flights
+Using Breadth-First Search
+Visualizing flights using D3
+Summary
+https://www.iteblog.com

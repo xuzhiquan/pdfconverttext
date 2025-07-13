@@ -1,0 +1,17 @@
+Chapter 3
+[ 37 ]
+Source: Introducing DataFrames in Apache-spark for Large Scale Data Science at http://bit.ly/2blDBI1
+With DataFrames, not only was there a significant improvement in Python
+performance, there is now performance parity between Python, Scala, SQL, and R.
+It is important to note that while, with DataFrames, PySpark is often
+significantly faster, there are some exceptions. The most prominent one
+is the use of Python UDFs, which results in round-trip communication
+between Python and the JVM. Note, this would be the worst-case scenario
+which would be similar if the compute was done on RDDs.
+Python can take advantage of the performance optimizations in Spark even while
+the codebase for the Catalyst Optimizer is written in Scala. Basically, it is a Python
+wrapper of approximately 2,000 lines of code that allows PySpark DataFrame queries
+to be significantly faster.
+Altogether, Python DataFrames (as well as SQL, Scala DataFrames, and R
+DataFrames) are all able to make use of the Catalyst Optimizer (as per the
+following updated diagram):

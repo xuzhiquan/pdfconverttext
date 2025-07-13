@@ -1,0 +1,43 @@
+Table of Contents
+[ v ]
+Chapter 8: TensorFrames
+What is Deep Learning?
+The need for neural networks and Deep Learning
+What is feature engineering?
+Bridging the data and algorithm
+What is TensorFlow?
+Installing Pip
+Installing TensorFlow
+Matrix multiplication using constants
+Matrix multiplication using placeholders
+Running the model
+Running another model
+Discussion
+Introducing TensorFrames
+TensorFrames – quick start
+Configuration and setup
+Launching a Spark cluster
+Creating a TensorFrames library
+Installing TensorFlow on your cluster
+Using TensorFlow to add a constant to an existing column
+Executing the Tensor graph
+Blockwise reducing operations example
+Building a DataFrame of vectors
+Analysing the DataFrame
+Computing elementwise sum and min of all vectors
+Summary
+Chapter 9: Polyglot Persistence with Blaze
+Installing Blaze
+Polyglot persistence
+Abstracting data
+Working with NumPy arrays
+Working with pandas' DataFrame
+Working with files
+Working with databases
+Interacting with relational databases
+Interacting with the MongoDB database
+Data operations
+Accessing columns
+Symbolic transformations
+Operations on columns
+https://www.iteblog.com

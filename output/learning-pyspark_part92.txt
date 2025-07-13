@@ -1,0 +1,20 @@
+Chapter 4
+[ 69 ]
+Also, no information would be gained from calculating the mean and standard
+deviation of the custId column, so we will not be doing that.
+For a better understanding of categorical columns, we will count the frequencies of
+their values using the .groupby(...) method. In this example, we will count the
+frequencies of the gender column:
+fraud_df.groupby('gender').count().show()
+The preceding code will produce the following output:
+As you can see, we are dealing with a fairly imbalanced dataset. What you would
+expect to see is an equal distribution for both genders.
+It goes beyond the scope of this chapter, but if we were building a
+statistical model, you would need to take care of these kinds of biases.
+You can read more at http://www.va.gov/VETDATA/docs/
+SurveysAndStudies/SAMPLE_WEIGHT.pdf.
+For the truly numerical features, we can use the .describe() method:
+numerical = ['balance', 'numTrans', 'numIntlTrans']
+desc = fraud_df.describe(numerical)
+desc.show()
+The .show() method will produce the following output:

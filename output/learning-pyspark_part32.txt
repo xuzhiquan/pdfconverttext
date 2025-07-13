@@ -1,0 +1,22 @@
+Chapter 1
+[ 9 ]
+Unifying Datasets and DataFrames
+In the previous section, we stated out that Datasets (at the time of writing this book)
+are only available in Scala or Java. However, we are providing the following context
+to better understand the direction of Spark 2.0.
+Datasets were introduced in 2015 as part of the Apache Spark 1.6 release. The
+goal for datasets was to provide a type-safe, programming interface. This allowed
+developers to work with semi-structured data (like JSON or key-value pairs) with
+compile time type safety (that is, production applications can be checked for errors
+before they run). Part of the reason why Python does not implement a Dataset API is
+because Python is not a type-safe language.
+Just as important, the Datasets API contain high-level domain specific language
+operations such as sum(), avg(), join(), and group(). This latter trait means
+that you have the flexibility of traditional Spark RDDs but the code is also easier
+to express, read, and write. Similar to DataFrames, Datasets can take advantage
+of Spark's catalyst optimizer by exposing expressions and data fields to a query
+planner and making use of Tungsten's fast in-memory encoding.
+The history of the Spark APIs is denoted in the following diagram noting the
+progression from RDD to DataFrame to Dataset:
+Source: From Webinar Apache Spark 1.5: What is the difference between a DataFrame and a RDD?
+http://bit.ly/29JPJSA

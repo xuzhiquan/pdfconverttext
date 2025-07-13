@@ -1,0 +1,21 @@
+DataFrames
+[ 46 ]
+Querying with the DataFrame API
+As noted in the previous section, you can start off by using collect(), show(), or
+take() to view the data within your DataFrame (with the last two including the
+option to limit the number of returned rows).
+Number of rows
+To get the number of rows within your DataFrame, you can use the count() method:
+swimmers.count()
+This gives the following output:
+Out[13]: 3
+Running filter statements
+To run a filter statement, you can use the filter clause; in the following code
+snippet, we are using the select clause to specify the columns to be returned
+as well:
+# Get the id, age where age = 22
+swimmers.select("id", "age").filter("age = 22").show()
+# Another way to write the above query is below
+swimmers.select(swimmers.id, swimmers.age).filter(swimmers.age == 22).
+show()
+The output of this query is to choose only the id and age columns, where age = 22:

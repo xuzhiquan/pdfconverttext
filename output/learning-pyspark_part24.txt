@@ -1,0 +1,28 @@
+[ 1 ]
+Understanding Spark
+Apache Spark is a powerful open source processing engine originally developed by
+Matei Zaharia as a part of his PhD thesis while at UC Berkeley. The first version of
+Spark was released in 2012. Since then, in 2013, Zaharia co-founded and has become
+the CTO at Databricks; he also holds a professor position at Stanford, coming from
+MIT. At the same time, the Spark codebase was donated to the Apache Software
+Foundation and has become its flagship project.
+Apache Spark is fast, easy to use framework, that allows you to solve a wide variety
+of complex data problems whether semi-structured, structured, streaming, and/or
+machine learning / data sciences. It also has become one of the largest open source
+communities in big data with more than 1,000 contributors from 250+ organizations
+and with 300,000+ Spark Meetup community members in more than 570+ locations
+worldwide.
+In this chapter, we will provide a primer to understanding Apache Spark. We
+will explain the concepts behind Spark Jobs and APIs, introduce the Spark 2.0
+architecture, and explore the features of Spark 2.0.
+The topics covered are:
+•
+What is Apache Spark?
+•
+Spark Jobs and APIs
+•
+Review of Resilient Distributed Datasets (RDDs), DataFrames, and Datasets
+•
+Review of Catalyst Optimizer and Project Tungsten
+•
+Review of the Spark 2.0 architecture

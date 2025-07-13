@@ -1,0 +1,20 @@
+Prepare Data for Modeling
+[ 74 ]
+Since Bokeh uses D3.js in the background, the resulting chart is interactive:
+If your data is small enough to fit on the driver (although we would argue it would
+normally be faster to use the previous method), you can bring the data and use the
+.hist(...) (from matplotlib) or .Histogram(...) (from Bokeh) methods:
+data_driver = {
+'obs': fraud_df.select('balance').rdd.flatMap(
+lambda row: row
+).collect()
+}
+plt.hist(data_driver['obs'], bins=20)
+plt.title('Histogram of \'balance\' using .hist()')
+b_hist_driver = chrt.Histogram(
+data_driver, values='obs',
+title='Histogram of \'balance\' using .Histogram()',
+bins=20
+)
+chrt.show(b_hist_driver)
+https://www.iteblog.com

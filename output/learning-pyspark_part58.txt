@@ -1,0 +1,17 @@
+Chapter 3
+[ 35 ]
+While this approach allows PySpark to distribute the processing of the data to
+multiple Python subprocesses on multiple workers, as you can see, there is a lot of
+context switching and communications overhead between Python and the JVM.
+An excellent resource on PySpark performance is Holden Karau's
+Improving PySpark Performance: Spark performance beyond the JVM:
+http://bit.ly/2bx89bn.
+Catalyst Optimizer refresh
+As noted in Chapter 1, Understanding Spark, one of the primary reasons the Spark
+SQL engine is so fast is because of the Catalyst Optimizer. For readers with a
+database background, this diagram looks similar to the logical/physical planner
+and cost model/cost-based optimization of a relational database management
+system (RDBMS):
+The significance of this is that, as opposed to immediately processing the query, the
+Spark engine's Catalyst Optimizer compiles and optimizes a logical plan and has a
+cost optimizer that determines the most efficient physical plan generated.

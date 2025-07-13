@@ -1,0 +1,28 @@
+Chapter 1
+[ 13 ]
+•
+Project Tungsten: Bringing Apache Spark Closer to Bare Metal https://
+databricks.com/blog/2015/04/28/project-tungsten-bringing-spark-
+closer-to-bare-metal.html
+Structured Streaming
+As quoted by Reynold Xin during Spark Summit East 2016:
+"The simplest way to perform streaming analytics is not having to reason about
+streaming."
+This is the underlying foundation for building Structured Streaming. While
+streaming is powerful, one of the key issues is that streaming can be difficult to build
+and maintain. While companies such as Uber, Netflix, and Pinterest have Spark
+Streaming applications running in production, they also have dedicated teams to
+ensure the systems are highly available.
+For a high-level overview of Spark Streaming, please review Spark
+Streaming: What Is It and Who's Using It? http://bit.ly/1Qb10f6
+As implied previously, there are many things that can go wrong when operating
+Spark Streaming (and any streaming system for that matter) including (but not
+limited to) late events, partial outputs to the final data source, state recovery on
+failure, and/or distributed reads/writes:
+Source: A Deep Dive into Structured Streaming http://bit.ly/2aHt1w0
+Therefore, to simplify Spark Streaming, there is now a single API that addresses
+both batch and streaming within the Apache Spark 2.0 release. More succinctly, the
+high-level streaming API is now built on top of the Apache Spark SQL Engine. It
+runs the same queries as you would with Datasets/DataFrames providing you with
+all the performance and optimization benefits as well as benefits such as event time,
+windowing, sessions, sources, and sinks.

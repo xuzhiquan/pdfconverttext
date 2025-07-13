@@ -1,0 +1,33 @@
+Chapter 4
+[ 61 ]
+Analyzing rows, we see the following:
+•
+The row with ID 3 has only one useful piece of information—the height
+•
+The row with ID 6 has only one missing value—the age
+Analyzing columns, we can see the following:
+•
+The income column, since it is a very personal thing to disclose, has most of
+its values missing
+•
+The weight and gender columns have only one missing value each
+•
+The age column has two missing values
+To find the number of missing observations per row, we can use the following snippet:
+df_miss.rdd.map(
+lambda row: (row['id'], sum([c == None for c in row]))
+).collect()
+It produces the following output:
+It tells us that, for example, the row with ID 3 has four missing observations, as we
+observed earlier.
+Let's see what values are missing so that when we count missing observations in
+columns, we can decide whether to drop the observation altogether or impute some
+of the observations:
+df_miss.where('id == 3').show()
+Here's what we get:
+Let's now check what percentage of missing observations are there in each column:
+df_miss.agg(*[
+(1 - (fn.count(c) / fn.count('*'))).alias(c + '_missing')
+for c in df_miss.columns
+]).show()
+https://www.iteblog.com

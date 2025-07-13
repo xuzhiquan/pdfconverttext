@@ -1,0 +1,26 @@
+Chapter 1
+[ 7 ]
+For more information, check out Deep Dive into Spark SQL's Catalyst
+Optimizer (http://bit.ly/271I7Dk) and Apache Spark DataFrames:
+Simple and Fast Analysis of Structured Data (http://bit.ly/29QbcOV)
+Project Tungsten
+Tungsten is the codename for an umbrella project of Apache Spark's execution
+engine. The project focuses on improving the Spark algorithms so they use memory
+and CPU more efficiently, pushing the performance of modern hardware closer to
+its limits.
+The efforts of this project focus, among others, on:
+•
+Managing memory explicitly so the overhead of JVM's object model and
+garbage collection are eliminated
+•
+Designing algorithms and data structures that exploit the memory hierarchy
+•
+Generating code in runtime so the applications can exploit modern compliers
+and optimize for CPUs
+•
+Eliminating virtual function dispatches so that multiple CPU calls are
+reduced
+•
+Utilizing low-level programming (for example, loading immediate data to
+CPU registers) to speed up the memory access and optimizing Spark's engine
+to efficiently compile and execute simple loops

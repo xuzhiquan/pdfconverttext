@@ -1,0 +1,17 @@
+Understanding Spark
+[ 4 ]
+A Spark job is associated with a chain of object dependencies organized in a direct
+acyclic graph (DAG) such as the following example generated from the Spark UI.
+Given this, Spark can optimize the scheduling (for example, determine the number
+of tasks and workers required) and execution of these tasks:
+For more information on the DAG scheduler, please refer to
+http://bit.ly/29WTiK8.
+Resilient Distributed Dataset
+Apache Spark is built around a distributed collection of immutable Java Virtual
+Machine (JVM) objects called Resilient Distributed Datasets (RDDs for short). As
+we are working with Python, it is important to note that the Python data is stored
+within these JVM objects. More of this will be discussed in the subsequent chapters
+on RDDs and DataFrames. These objects allow any job to perform calculations very
+quickly. RDDs are calculated against, cached, and stored in-memory: a scheme that
+results in orders of magnitude faster computations compared to other traditional
+distributed frameworks like Apache Hadoop.

@@ -1,0 +1,10 @@
+Chapter 4
+[ 73 ]
+This will produce the following chart:
+In a similar manner, a histogram can be created with Bokeh:
+b_hist = chrt.Bar(
+data,
+values='freq', label='bins',
+title='Histogram of \'balance\'')
+chrt.show(b_hist)
+https://www.iteblog.com

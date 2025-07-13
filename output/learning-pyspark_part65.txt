@@ -1,0 +1,17 @@
+DataFrames
+[ 42 ]
+Simple DataFrame queries
+Now that you have created the swimmersJSON DataFrame, we will be able to run
+the DataFrame API, as well as SQL queries against it. Let's start with a simple query
+showing all the rows within the DataFrame.
+DataFrame API query
+To do this using the DataFrame API, you can use the show(<n>) method, which
+prints the first n rows to the console:
+Running the.show() method will default to present the first 10 rows.
+# DataFrame API
+swimmersJSON.show()
+This gives the following output:
+SQL query
+If you prefer writing SQL statements, you can write the following query:
+spark.sql("select * from swimmersJSON").collect()
+This will give the following output:

@@ -1,0 +1,25 @@
+Resilient Distributed Datasets
+[ 20 ]
+Schema
+RDDs are schema-less data structures (unlike DataFrames, which we will discuss in
+the next chapter). Thus, parallelizing a dataset, such as in the following code snippet,
+is perfectly fine with Spark when using RDDs:
+data_heterogenous = sc.parallelize([
+('Ferrari', 'fast'),
+{'Porsche': 100000},
+['Spain','visited', 4504]
+]).collect()
+So, we can mix almost anything: a tuple, a dict, or a list and Spark will
+not complain.
+Once you .collect() the dataset (that is, run an action to bring it back to the driver)
+you can access the data in the object as you would normally do in Python:
+data_heterogenous[1]['Porsche']
+It will produce the following:
+The .collect() method returns all the elements of the RDD to the driver where it is
+serialized as a list.
+We will talk more about the caveats of using .collect() later in this
+chapter.
+Reading from files
+When you read from a text file, each row from the file forms an element of an RDD.
+The data_from_file.take(1) command will produce the following (somewhat
+unreadable) output:

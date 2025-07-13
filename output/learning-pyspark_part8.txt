@@ -1,0 +1,18 @@
+Denny Lee is a Principal Program Manager at Microsoft for the Azure
+DocumentDB team—Microsoft's blazing fast, planet-scale managed document store
+service.  He is a hands-on distributed systems and data science engineer with more
+than 18 years of experience developing Internet-scale infrastructure, data platforms,
+and predictive analytics systems for both on-premise and cloud environments.
+He has extensive experience of building greenfield teams as well as turnaround/
+change catalyst.  Prior to joining the Azure DocumentDB team, Denny worked as a
+Technology Evangelist at Databricks; he has been working with Apache Spark since
+0.5.  He was also the Senior Director of Data Sciences Engineering at Concur, and
+was on the incubation team that built Microsoft's Hadoop on Windows and Azure
+service (currently known as HDInsight).  Denny also has a Masters in Biomedical
+Informatics from Oregon Health and Sciences University and has architected and
+implemented powerful data solutions for enterprise healthcare customers for the
+last 15 years.
+I would like to thank my wonderful spouse, Hua-Ping, and my
+awesome daughters, Isabella and Samantha.  You are the ones
+who keep me grounded and help me reach for the stars!
+https://www.iteblog.com
